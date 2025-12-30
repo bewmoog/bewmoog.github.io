@@ -86,7 +86,7 @@
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wider text-slate-600">
-                <a href="services.html" class="hover:text-brand-blue transition-colors">SERVICES</a>
+                <a href="index.html" class="hover:text-brand-blue transition-colors">HOME</a>
                 <a href="process.html" class="hover:text-brand-blue transition-colors">THE PROCESS</a>
                 <a href="contact.html" class="px-6 py-2 bg-brand-blue text-white font-bold rounded-lg shadow-md hover:bg-brand-navy transition-all">GET A QUOTE</a>
             </div>
@@ -100,15 +100,14 @@
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8 md:hidden">
             <button id="close-menu" class="absolute top-8 right-8 text-brand-navy"><i data-lucide="x" class="h-8 w-8"></i></button>
-            <a href="services.html" class="hover:text-brand-blue transition-colors mobile-link text-xl font-bold">Services</a>
+            <a href="index.html" class="hover:text-brand-blue transition-colors mobile-link text-xl font-bold">Home</a>
             <a href="process.html" class="hover:text-brand-blue transition-colors mobile-link text-xl font-bold">Our Process</a>
             <a href="contact.html" class="px-8 py-3 bg-brand-blue text-white font-bold rounded-lg mobile-link">Get Started</a>
         </div>
     </nav>
 
     <!-- Header / Title -->
-    <section class="relative bg-white pt-48 pb-32 overflow-hidden">
-        <img src="img8.jpg" class="absolute inset-0 h-full w-full object-cover"">
+    <section class="relative bg-slate-50 pt-48 pb-32 overflow-hidden">
         
         <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
             <h1 class="font-serif text-5xl md:text-6xl font-black mb-6 text-brand-navy">Get in Touch</h1>
@@ -116,7 +115,7 @@
         </div>
         <div class="pt-8"></div>
         <div class="max-w-5xl mx-auto px-6">
-            <div class="bg-white/85 backdrop-blur rounded-2xl p-8 md:p-16 shadow-xl border border-slate-100 fade-in-section">
+            <div class="bg-white rounded-2xl p-8 md:p-16 shadow-xl border border-slate-100 fade-in-section">
                 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
                     <!-- Contact Info -->
@@ -246,7 +245,7 @@
             <div>
                 <h4 class="text-brand-navy font-bold mb-6 uppercase tracking-wider text-xs">Quick Links</h4>
                 <ul class="space-y-4 text-slate-500 font-semibold text-sm">
-                    <li><a href="services.html" class="hover:text-brand-blue transition-colors">Services</a></li>
+                    <li><a href="index.html" class="hover:text-brand-blue transition-colors">Home</a></li>
                     <li><a href="process.html" class="hover:text-brand-blue transition-colors">Our Process</a></li>
                     <li><a href="contact.html" class="text-brand-blue transition-colors">Contact Us</a></li>
                 </ul>
@@ -254,8 +253,12 @@
 
             <div>
                 <h4 class="text-brand-navy font-bold mb-6 uppercase tracking-wider text-xs">Direct Contact</h4>
+                <div class="cursor-pointer" onclick="copyText('help@current-glass.com', 'Email address')" title="Click to copy">
                 <p class="text-slate-500 font-semibold text-sm mb-2">help@current-glass.com</p>
+                </div>
+                <div class="cursor-pointer" onclick="copyText('(385) 287-5896', '(385) 287-5896')" title="Click to copy">
                 <p class="text-brand-blue font-bold text-lg mb-6">(385) 287-5896</p>
+                </div>
                 <p class="text-slate-400 text-xs italic">Serving Central Utah</p>
             </div>
         </div>

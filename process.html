@@ -117,7 +117,7 @@
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wider text-slate-600">
-                <a href="services.html" class="hover:text-brand-blue transition-colors">SERVICES</a>
+                <a href="index.html" class="hover:text-brand-blue transition-colors">HOME</a>
                 <a href="process.html" class="text-brand-blue transition-colors">THE PROCESS</a>
                 <a href="contact.html" class="px-6 py-2 bg-brand-blue text-white font-bold rounded-lg shadow-md hover:bg-brand-navy transition-all">GET A QUOTE</a>
             </div>
@@ -131,7 +131,7 @@
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8 md:hidden">
             <button id="close-menu" class="absolute top-8 right-8 text-brand-navy"><i data-lucide="x" class="h-8 w-8"></i></button>
-            <a href="services.html" class="hover:text-brand-blue transition-colors mobile-link text-xl font-bold">Services</a>
+            <a href="index.html" class="hover:text-brand-blue transition-colors mobile-link text-xl font-bold">Home</a>
             <a href="process.html" class="text-2xl font-serif font-bold text-brand-blue mobile-link">Our Process</a>
             <a href="contact.html" class="px-8 py-3 bg-brand-blue text-white font-bold rounded-lg mobile-link">Get Started</a>
         </div>
@@ -140,7 +140,8 @@
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20">
         <!-- Decoration -->
-        <img src="img7.jpg" style="width:50%; position:absolute;" class="bottom-0">
+        <div class="absolute bottom-0 translate-y-1/2 w-[1500px] h-[100px] bg-sky-500/50 rounded-full blur-3xl"></div>
+        
 
         <div class="relative z-10 max-w-5xl mx-auto px-6 text-center fade-in-section">
             <p class="text-brand-blue tracking-[0.2em] uppercase text-sm mb-4 font-bold">Transparency at Every Step</p>
@@ -196,7 +197,7 @@
                             <i data-lucide="ruler" class="h-6 w-6"></i>
                         </div>
                         <h3 class="text-3xl font-serif font-bold text-brand-navy mb-3">2. Precision Measurement</h3>
-                        <p class="text-slate-600 font-medium leading-relaxed">Our technicians arrive to measure your glass to the millimeter. We assess the glass thickness, tint, and Low-E coating type to match your existing windows perfectly, or upgrade to your preference.</p>
+                        <p class="text-slate-600 font-medium leading-relaxed">Our technicians arrive to measure your glass. We assess the glass thickness, tint, and Low-E coating type to match your existing windows perfectly, or upgrade to your preference.</p>
                     </div>
                 </div>
 
@@ -342,7 +343,7 @@
                             </span>
                         </summary>
                         <p class="text-slate-600 mt-4 leading-relaxed font-medium">
-                            Standard insulated units take just 1-2 weeks to fabricate. Once we receive the glass from the manufacturer, we schedule installation immediately, often within the same week.
+                            Standard insulated units take just 2 weeks to fabricate. Once we receive the glass from the manufacturer, we schedule installation immediately, often within the same week.
                         </p>
                     </details>
                 </div>
@@ -376,18 +377,6 @@
                         </p>
                     </details>
                 </div>
-
-                <!-- Question 4 -->
-                <div class="border border-slate-200 rounded-xl p-6 hover:border-brand-blue transition-colors cursor-pointer group">
-                    <details class="group">
-                        <summary class="flex justify-between items-center font-bold text-brand-navy text-lg list-none cursor-pointer">
-                            <span>Is there a warranty?</span>
-                            <span class="transition-transform group-open:rotate-180">
-                                <i data-lucide="chevron-down" class="h-5 w-5 text-brand-blue"></i>
-                            </span>
-                        </summary>
-                    </details>
-                </div>
             </div>
         </div>
     </section>
@@ -397,7 +386,7 @@
         <div class="absolute inset-0 bg-brand-blue/5"></div>
         <div class="max-w-4xl mx-auto px-6 relative z-10 text-center fade-in-section">
              <h2 class="font-serif text-4xl text-white font-black mb-6">Start Your Project</h2>
-             <p class="text-slate-300 font-medium text-lg mb-8 max-w-2xl mx-auto">Don't let foggy windows cloud your view. Contact us today for a seamless glass replacement experience.</p>
+             <p class="text-slate-300 font-medium text-lg mb-8 max-w-2xl mx-auto">Don't let your old windows cloud your view. Contact us today for a seamless glass replacement experience.</p>
              <a href="contact.html" class="inline-flex items-center py-4 px-8 bg-brand-blue text-white font-bold rounded-lg shadow-lg hover:bg-white hover:text-brand-navy transition-all">
                 Get a Free Quote <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
              </a>
@@ -420,7 +409,7 @@
             <div>
                 <h4 class="text-brand-navy font-bold mb-6 uppercase tracking-wider text-xs">Quick Links</h4>
                 <ul class="space-y-4 text-slate-500 font-semibold text-sm">
-                    <li><a href="services.html" class="hover:text-brand-blue transition-colors">Services</a></li>
+                    <li><a href="index.html" class="hover:text-brand-blue transition-colors">Home</a></li>
                     <li><a href="process.html" class="text-brand-blue transition-colors">Our Process</a></li>
                     <li><a href="contact.html" class="hover:text-brand-blue transition-colors">Contact Us</a></li>
                 </ul>
@@ -428,8 +417,12 @@
 
             <div>
                 <h4 class="text-brand-navy font-bold mb-6 uppercase tracking-wider text-xs">Direct Contact</h4>
+                <div class="cursor-pointer" onclick="copyText('help@current-glass.com', 'Email address')" title="Click to copy">
                 <p class="text-slate-500 font-semibold text-sm mb-2">help@current-glass.com</p>
+                </div>
+                <div class="cursor-pointer" onclick="copyText('(385) 287-5896', '(385) 287-5896')" title="Click to copy">
                 <p class="text-brand-blue font-bold text-lg mb-6">(385) 287-5896</p>
+                </div>
                 <p class="text-slate-400 text-xs italic">Serving Central Utah</p>
             </div>
         </div>
@@ -437,6 +430,12 @@
             &copy; 2026 Current Glass.
         </div>
     </footer>
+    
+    <!-- Copy Notification Toast -->
+    <div id="copy-notification" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-brand-navy text-white px-6 py-3 rounded-full shadow-2xl translate-y-24 opacity-0 transition-all duration-300 z-50 flex items-center gap-3 pointer-events-none">
+        <i data-lucide="check-circle-2" class="h-5 w-5 text-green-400"></i>
+        <span id="notification-text" class="font-medium text-sm">Copied to clipboard</span>
+    </div>
 
     <!-- Scripts -->
     <script>
@@ -478,6 +477,43 @@
         mobileBtn.addEventListener('click', toggleMenu);
         closeBtn.addEventListener('click', toggleMenu);
         mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+        
+        // --- COPY TO CLIPBOARD ---
+        let timeoutId;
+        function copyText(text, label) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification(`${label} copied!`);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback approach
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                   document.execCommand("copy");
+                   showNotification(`${label} copied!`);
+                } catch (e) {
+                   console.error("Fallback copy failed", e);
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+        
+        
+        function showNotification(message) {
+            const notification = document.getElementById('copy-notification');
+            const textEl = document.getElementById('notification-text');
+            
+            textEl.textContent = message;
+            notification.classList.remove('translate-y-24', 'opacity-0');
+            
+            if (timeoutId) clearTimeout(timeoutId);
+            
+            timeoutId = setTimeout(() => {
+                notification.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
     </script>
 </body>
 </html>
