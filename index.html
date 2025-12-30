@@ -50,10 +50,12 @@
             border: 1px solid #e2e8f0;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             transition: all 0.3s ease;
+            border-radius: 1rem; /* rounded-2xl */
         }
 
         .premium-card:hover {
             border-color: #0284c7;
+            transform: translateY(-4px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
@@ -90,19 +92,16 @@
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <!-- Brand / Logo -->
             <a href="index.html" class="flex items-center gap-2 group">
-                <div class="w-24 flex items-center justify-center">
-                    <!-- Placeholder for logo -->
-                    <img src="logo.png" alt="Logo" onerror="this.style.display='none'">
-                    <span class="font-bold text-2xl tracking-tight text-brand-navy group-hover:text-brand-blue transition-colors" style="display: flex;">Current<span class="font-sans font-medium text-brand-blue">Glass</span></span>
-                </div>
+                <img src="logo.png" alt="Logo" onerror="this.style.display='none'" class="h-10 w-auto">
+                <span class="font-bold text-2xl tracking-tight text-brand-navy group-hover:text-brand-blue transition-colors">Current<span class="font-sans font-medium text-brand-blue">Glass</span></span>
             </a>
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wider text-slate-600">
-                <a href="residential.hmtl" class="hover:text-brand-blue transition-colors">RESIDENTIAL</a>
-                <a href="commercial.hmtl" class="hover:text-brand-blue transition-colors">COMMERCIAL</a>
+                <a href="residential.html" class="hover:text-brand-blue transition-colors">RESIDENTIAL</a>
+                <a href="commercial.html" class="hover:text-brand-blue transition-colors">COMMERCIAL</a>
                 <a href="process.html" class="hover:text-brand-blue transition-colors">THE PROCESS</a>
-                <a href="contact.html" class="px-6 py-2 bg-brand-blue text-white font-bold rounded shadow-md hover:bg-brand-navy transition-all">GET A QUOTE</a>
+                <a href="contact.html" class="px-6 py-2 bg-brand-blue text-white font-bold rounded-lg shadow-md hover:bg-brand-navy transition-all">GET A QUOTE</a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -114,10 +113,10 @@
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8 md:hidden">
             <button id="close-menu" class="absolute top-8 right-8 text-brand-navy"><i data-lucide="x" class="h-8 w-8"></i></button>
-            <a href="residential.hmtl" class="hover:text-brand-blue transition-colors">Residential</a>
-            <a href="commercial.hmtl" class="hover:text-brand-blue transition-colors">Commercial</a>
-            <a href="process.html" class="text-2xl font-serif font-bold text-brand-navy mobile-link">Our Process</a>
-            <a href="contact.html" class="px-8 py-3 bg-brand-blue text-white font-bold rounded mobile-link">Get Started</a>
+            <a href="residential.html" class="hover:text-brand-blue transition-colors mobile-link text-xl font-bold">Residential</a>
+            <a href="commercial.html" class="hover:text-brand-blue transition-colors mobile-link text-xl font-bold">Commercial</a>
+            <a href="process.html" class="hover:text-brand-blue transition-colors mobile-link text-xl font-bold">Our Process</a>
+            <a href="contact.html" class="px-8 py-3 bg-brand-blue text-white font-bold rounded-lg mobile-link">Get Started</a>
         </div>
     </nav>
 
@@ -137,10 +136,10 @@
                     High-quality premium glass replacement for homes and businesses. We specialize in replacing the glass inside your existing windows—saving you thousands in renovation costs.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#contact" class="px-8 py-4 bg-brand-blue hover:bg-brand-navy text-white font-bold transition-all duration-300 rounded shadow-lg flex items-center justify-center gap-2">
+                    <a href="contact.html" class="px-8 py-4 bg-brand-blue hover:bg-brand-navy text-white font-bold transition-all duration-300 rounded-lg shadow-lg flex items-center justify-center gap-2">
                         Request a Quote <i data-lucide="arrow-right" class="h-4 w-4"></i>
                     </a>
-                    <a href="process.html" class="px-8 py-4 border-2 border-slate-200 hover:border-brand-blue hover:text-brand-blue text-slate-600 font-bold transition-all duration-300 rounded flex items-center justify-center">
+                    <a href="process.html" class="px-8 py-4 border-2 border-slate-200 hover:border-brand-blue hover:text-brand-blue text-slate-600 font-bold transition-all duration-300 rounded-lg flex items-center justify-center">
                         The Process
                     </a>
                 </div>
@@ -148,7 +147,7 @@
 
             <div class="relative fade-in-section delay-200 hidden lg:block">
                 <div class="absolute -inset-4 bg-brand-blue/10 rounded-2xl -rotate-2"></div>
-                <img src="https://images.unsplash.com/photo-1509644851169-2acc08aa25b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Clear Home Window" class="relative rounded-xl shadow-2xl z-10 w-full h-[600px] object-cover">
+                <img src="https://images.unsplash.com/photo-1509644851169-2acc08aa25b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Clear Home Window" class="relative rounded-2xl shadow-2xl z-10 w-full h-[600px] object-cover">
             </div>
         </div>
     </section>
@@ -158,12 +157,12 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16 fade-in-section">
                 <h2 class="font-serif font-black text-4xl md:text-5xl text-brand-navy font-bold mb-6">Expertise for Every Property</h2>
-                <p class="text-slate-600 font-medium">Whether it's your family home or your business storefront, we bring the same level of precision and premium care to every piece of glass.</p>
+                <p class="text-slate-600 font-medium text-lg">Whether it's your family home or your business storefront, we bring the same level of precision and premium care to every piece of glass.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Residential Card -->
-                <div href="residential.html" class="cursor-pointer premium-card p-10 rounded-2xl group fade-in-section">
+                <a href="residential.html" class="block cursor-pointer premium-card p-10 group fade-in-section">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="p-3 bg-brand-blue/10 text-brand-blue rounded-lg group-hover:bg-brand-blue group-hover:text-white transition-colors">
                             <i data-lucide="home" class="h-8 w-8"></i>
@@ -174,12 +173,12 @@
                         We handle all household glass needs, from standard bedroom windows to large sliding patio doors. We restore thermal efficiency and curb appeal to your private residence.
                     </p>
                     <div class="text-brand-blue font-bold flex items-center gap-2">
-                        Homeowners & Property Managers <i data-lucide="check-circle-2" class="h-5 w-5"></i>
+                        View Residential Services <i data-lucide="arrow-right" class="h-5 w-5 group-hover:translate-x-1 transition-transform"></i>
                     </div>
-                </div>
+                </a>
 
                 <!-- Commercial Card -->
-                <div href="commercial.html" class="cursor-pointer premium-card p-10 rounded-2xl group fade-in-section delay-100">
+                <a href="commercial.html" class="block cursor-pointer premium-card p-10 group fade-in-section delay-100">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="p-3 bg-brand-blue/10 text-brand-blue rounded-lg group-hover:bg-brand-blue group-hover:text-white transition-colors">
                             <i data-lucide="building-2" class="h-8 w-8"></i>
@@ -190,9 +189,9 @@
                         Serving local businesses, offices, and retail spaces. We replace window units and storefront glass efficiently to ensure your business remains secure and inviting.
                     </p>
                     <div class="text-brand-blue font-bold flex items-center gap-2">
-                        Offices, Retail & Storefronts <i data-lucide="check-circle-2" class="h-5 w-5"></i>
+                        View Commercial Services <i data-lucide="arrow-right" class="h-5 w-5 group-hover:translate-x-1 transition-transform"></i>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Full Services List -->
@@ -238,27 +237,32 @@
                     <p class="text-slate-600 font-medium text-lg leading-relaxed mb-8">
                         A broken seal or cracked pane doesn't require a full window demolition. We replace only the <strong>IGU (Insulated Glass Unit)</strong>, maintaining your home's structural integrity.
                     </p>
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-brand-blue flex items-center justify-center text-white font-bold">1</div>
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-brand-blue flex items-center justify-center text-white font-bold shadow-lg">1</div>
                             <div>
-                                <h4 class="font-bold text-brand-navy">Precision Measurement</h4>
-                                <p class="text-slate-500 text-sm font-medium">We measure your existing unit to the millimeter to ensure a perfect airtight seal.</p>
+                                <h4 class="font-bold text-brand-navy text-xl mb-1">Precision Measurement</h4>
+                                <p class="text-slate-600 font-medium">We measure your existing unit to the millimeter to ensure a perfect airtight seal.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-brand-blue flex items-center justify-center text-white font-bold">2</div>
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-brand-blue flex items-center justify-center text-white font-bold shadow-lg">2</div>
                             <div>
-                                <h4 class="font-bold text-brand-navy">Premium Fabrication</h4>
-                                <p class="text-slate-500 text-sm font-medium">Your new glass is custom-built with high-performance coatings and spacers.</p>
+                                <h4 class="font-bold text-brand-navy text-xl mb-1">Premium Fabrication</h4>
+                                <p class="text-slate-600 font-medium">Your new glass is custom-built with high-performance coatings and spacers.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-brand-blue flex items-center justify-center text-white font-bold">3</div>
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-brand-blue flex items-center justify-center text-white font-bold shadow-lg">3</div>
                             <div>
-                                <h4 class="font-bold text-brand-navy">Seamless Installation</h4>
-                                <p class="text-slate-500 text-sm font-medium">We swap the old glass for new in minutes, with zero damage to your walls or trim.</p>
+                                <h4 class="font-bold text-brand-navy text-xl mb-1">Seamless Installation</h4>
+                                <p class="text-slate-600 font-medium">We swap the old glass for new in minutes, with zero damage to your walls or trim.</p>
                             </div>
+                        </div>
+                        <div class="pt-4">
+                            <a href="process.html" class="inline-flex items-center font-bold text-brand-blue hover:text-brand-navy transition-colors">
+                                Learn more about our process <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -286,74 +290,30 @@
                 Total clarity includes every detail. We offer a <span class="text-white border-b-2 border-brand-blue font-bold italic">Free Screen Replacement</span> with every piece of glass we replace.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                <div class="bg-white/5 p-8 rounded-xl border border-white/10">
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
                     <h4 class="text-brand-accent font-bold mb-3 uppercase tracking-wider text-xs">Modern Mesh</h4>
-                    <p class="text-sm text-slate-400 font-medium">New high-visibility fiberglass mesh that resists UV damage and maintains airflow.</p>
+                    <p class="text-sm text-slate-300 font-medium">New high-visibility fiberglass mesh that resists UV damage and maintains airflow.</p>
                 </div>
-                <div class="bg-white/5 p-8 rounded-xl border border-white/10">
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
                     <h4 class="text-brand-accent font-bold mb-3 uppercase tracking-wider text-xs">Custom Fitting</h4>
-                    <p class="text-sm text-slate-400 font-medium">We ensure the screen is perfectly tensioned and secured to the existing frame.</p>
+                    <p class="text-sm text-slate-300 font-medium">We ensure the screen is perfectly tensioned and secured to the existing frame.</p>
                 </div>
-                <div class="bg-white/5 p-8 rounded-xl border border-white/10">
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
                     <h4 class="text-brand-accent font-bold mb-3 uppercase tracking-wider text-xs">Total Value</h4>
-                    <p class="text-sm text-slate-400 font-medium">Part of our commitment to leaving your windows better than we found them.</p>
+                    <p class="text-sm text-slate-300 font-medium">Part of our commitment to leaving your windows better than we found them.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-slate-50">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="bg-white rounded-3xl p-8 md:p-16 shadow-2xl border border-slate-100 fade-in-section">
-                <div class="text-center mb-12">
-                    <h2 class="font-serif text-4xl text-brand-navy font-black mb-4">Let's Clear Things Up</h2>
-                    <p class="text-slate-500 font-semibold">Start your project with a free, no-obligation estimate.</p>
-                </div>
-
-                <form class="space-y-6" onsubmit="event.preventDefault(); alert('Request sent! Our team will contact you shortly.');">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">First Name</label>
-                            <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="John">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">Last Name</label>
-                            <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="Doe">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">Email Address</label>
-                            <input type="email" class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="john@example.com">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">Phone Number</label>
-                            <input type="tel" class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="(555) 000-0000">
-                        </div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">Service Required</label>
-                        <select class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium appearance-none">
-                            <option>Residential Glass Replacement</option>
-                            <option>Commercial Glass Services</option>
-                            <option>Foggy Window Repair</option>
-                            <option>Safety / Tempered Glass</option>
-                        </select>
-                    </div>
-
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">How can we help?</label>
-                        <textarea rows="4" class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="Describe your window or storefront issue..."></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full py-5 bg-brand-blue text-white font-bold rounded shadow-lg hover:bg-brand-navy transition-all transform hover:-translate-y-1">
-                        Send Estimate Request
-                    </button>
-                </form>
-            </div>
+    <!-- CTA Section (Replaced Contact Form) -->
+    <section class="py-24 bg-slate-50 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center fade-in-section">
+             <h2 class="font-serif text-4xl text-brand-navy font-black mb-6">Ready to Clear Things Up?</h2>
+             <p class="text-slate-600 font-medium text-lg mb-8 max-w-2xl mx-auto">Get a free, no-obligation estimate for your home or business. Our team is ready to help you see the difference.</p>
+             <a href="contact.html" class="inline-flex items-center py-4 px-8 bg-brand-blue text-white font-bold rounded-lg shadow-lg hover:bg-brand-navy transition-all">
+                Contact Us Today <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+             </a>
         </div>
     </section>
 
@@ -362,10 +322,8 @@
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center gap-2 mb-6">
-                    <div class="w-16 flex items-center justify-center">
-                        <img src="logo.png">
-                    </div>
-                    <span class="font-bold text-xl tracking-tight text-brand-navy group-hover:text-brand-blue transition-colors">Current<span class="font-sans font-medium text-brand-blue">Glass</span></span>
+                    <img src="logo.png" alt="Logo" onerror="this.style.display='none'" class="h-10 w-auto">
+                    <span class="font-bold text-xl tracking-tight text-brand-navy transition-colors">Current<span class="font-sans font-medium text-brand-blue">Glass</span></span>
                 </div>
                 <p class="text-slate-500 font-medium max-w-sm mb-6 leading-relaxed">
                     Premium glass replacement specializing in IGU reglazing. Better for your home, better for your wallet.
@@ -379,9 +337,10 @@
             <div>
                 <h4 class="text-brand-navy font-bold mb-6 uppercase tracking-wider text-xs">Quick Links</h4>
                 <ul class="space-y-4 text-slate-500 font-semibold text-sm">
-                    <li><a href="#sectors" class="hover:text-brand-blue">Residential</a></li>
-                    <li><a href="#sectors" class="hover:text-brand-blue">Commercial</a></li>
-                    <li><a href="contact.html" class="hover:text-brand-blue">Contact Us</a></li>
+                    <li><a href="residential.html" class="hover:text-brand-blue transition-colors">Residential</a></li>
+                    <li><a href="commercial.html" class="hover:text-brand-blue transition-colors">Commercial</a></li>
+                    <li><a href="process.html" class="hover:text-brand-blue transition-colors">Our Process</a></li>
+                    <li><a href="contact.html" class="hover:text-brand-blue transition-colors">Contact Us</a></li>
                 </ul>
             </div>
 
