@@ -121,33 +121,37 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <!-- Decoration -->
-        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[600px] h-[600px] bg-sky-500/5 rounded-full blur-3xl"></div>
+    <section class="relative min-h-screen flex items-center overflow-hidden">
+        <!-- Background Image (Absolute) -->
+        <div class="absolute inset-0 z-0">
+            <img src="img1.jpg" style="transform: scaleX(-1);" class="w-full h-full object-cover" />
+            <!-- Gradient Overlay: Solid white on left, fading to transparent on right -->
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/20 md:to-transparent"></div>
+            <!-- Extra overlay for mobile readability -->
+            <div class="absolute inset-0 bg-white/60 md:hidden"></div>
+        </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="text-left fade-in-section">
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
+            <div class="max-w-3xl fade-in-section">
                 <p class="text-brand-blue tracking-[0.2em] uppercase text-sm mb-4 font-bold">The Better Way to Reglaze</p>
-                <h1 class="text-5xl md:text-7xl text-brand-navy mb-6 leading-tight font-serif font-black">
+                
+                <h1 class="text-6xl md:text-8xl text-brand-navy mb-8 leading-tight font-serif font-black tracking-tight drop-shadow-sm">
                     Pure Clarity<br /><span class="text-gradient">Framed Perfectly.</span>
                 </h1>
-                <p class="text-slate-600 max-w-xl text-lg md:text-xl font-medium mb-10 leading-relaxed">
-                    High-quality premium glass replacement for homes and businesses. We specialize in replacing the glass inside your existing windows—saving you thousands in renovation costs.
+                
+                <p class="text-slate-700 text-xl md:text-2xl font-medium mb-12 leading-relaxed max-w-xl">
+                    High-quality premium glass replacement for homes and businesses. We replace the glass inside your existing windows—saving you thousands in renovation costs.
                 </p>
+                
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="contact.html" class="px-8 py-4 bg-brand-blue hover:bg-brand-navy text-white font-bold transition-all duration-300 rounded-lg shadow-lg flex items-center justify-center gap-2">
-                        Request a Quote <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                    <a href="contact.html" class="px-10 py-5 bg-brand-blue hover:bg-brand-navy text-white text-lg font-bold transition-all duration-300 rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center gap-2">
+                        Request a Quote <i data-lucide="arrow-right" class="h-5 w-5"></i>
                     </a>
-                    <a href="process.html" class="px-8 py-4 border-2 border-slate-200 hover:border-brand-blue hover:text-brand-blue text-slate-600 font-bold transition-all duration-300 rounded-lg flex items-center justify-center">
+                    <a href="process.html" class="px-10 py-5 bg-white/80 backdrop-blur-md border-2 border-slate-200 hover:border-brand-blue hover:text-brand-blue text-slate-700 text-lg font-bold transition-all duration-300 rounded-xl flex items-center justify-center hover:-translate-y-1 shadow-sm">
                         The Process
                     </a>
                 </div>
-            </div>
-
-            <div class="relative fade-in-section delay-200 hidden lg:block">
-                <div class="absolute -inset-4 bg-brand-blue/10 rounded-2xl -rotate-2"></div>
-                <img src="https://images.unsplash.com/photo-1509644851169-2acc08aa25b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Clear Home Window" class="relative rounded-2xl shadow-2xl z-10 w-full h-[600px] object-cover">
             </div>
         </div>
     </section>
@@ -328,10 +332,6 @@
                 <p class="text-slate-500 font-medium max-w-sm mb-6 leading-relaxed">
                     Premium glass replacement specializing in IGU reglazing. Better for your home, better for your wallet.
                 </p>
-                <div class="flex gap-4">
-                    <a href="#" class="h-10 w-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:bg-brand-blue hover:text-white transition-all"><i data-lucide="instagram" class="h-5 w-5"></i></a>
-                    <a href="#" class="h-10 w-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:bg-brand-blue hover:text-white transition-all"><i data-lucide="facebook" class="h-5 w-5"></i></a>
-                </div>
             </div>
             
             <div>

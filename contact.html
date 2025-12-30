@@ -16,15 +16,14 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-	<!-- Load EmailJS SDK -->
+    <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
-        (function() {
-            // Initialize with your Public Key
-            emailjs.init({
-                publicKey: "hEWqsk7ZIVpHoXTYP",
-            });
-        })();
+       (function(){
+          emailjs.init({
+            publicKey: "hEWqsk7ZIVpHoXTYP",
+          });
+       })();
     </script>
 
     <!-- Custom Config & Styles -->
@@ -77,7 +76,7 @@
 <body class="antialiased overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 bg-white shadow-sm">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <!-- Brand / Logo -->
             <a href="index.html" class="flex items-center gap-2 group">
@@ -110,10 +109,11 @@
     </nav>
 
     <!-- Header / Title -->
-    <section class="bg-white py-32 relative overflow-hidden">
+    <section class="bg-brand-navy pt-48 pb-32 relative overflow-hidden">
+        <div class="absolute inset-0"></div>
         <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <h1 class="font-serif text-5xl md:text-6xl font-black mb-6">Get in Touch</h1>
-            <p class="text-lg md:text-xl max-w-2xl mx-auto">Start your glass replacement project today. Fill out the form below or give us a call for a free estimate.</p>
+            <h1 class="font-serif text-5xl md:text-6xl font-black mb-6 text-white">Get in Touch</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto text-white">Start your glass replacement project today. Fill out the form below or give us a call for a free estimate.</p>
         </div>
     </section>
 
@@ -130,23 +130,31 @@
                             <p class="text-slate-600 font-medium mb-6">We serve Central Utah and surrounding areas. Reach out anytime.</p>
                             
                             <div class="space-y-4">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue">
+                                <!-- Phone -->
+                                <div class="flex items-center gap-4 group cursor-pointer p-3 -ml-3 rounded-xl hover:bg-slate-50 transition-all" onclick="copyText('(385) 287-5896', 'Phone number')" title="Click to copy">
+                                    <div class="h-10 w-10 rounded-full bg-brand-light flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all shrink-0">
                                         <i data-lucide="phone" class="h-5 w-5"></i>
                                     </div>
                                     <div>
                                         <p class="text-xs font-bold text-slate-400 uppercase tracking-wide">Phone</p>
-                                        <p class="font-bold text-brand-navy">(385) 287-5896</p>
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-bold text-brand-blue group-hover:text-brand-accent transition-colors">(385) 287-5896</p>
+                                            <i data-lucide="copy" class="h-3 w-3 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue">
+                                <!-- Email -->
+                                <div class="flex items-center gap-4 group cursor-pointer p-3 -ml-3 rounded-xl hover:bg-slate-50 transition-all" onclick="copyText('help@current-glass.com', 'Email address')" title="Click to copy">
+                                    <div class="h-10 w-10 rounded-full bg-brand-light flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all shrink-0">
                                         <i data-lucide="mail" class="h-5 w-5"></i>
                                     </div>
                                     <div>
                                         <p class="text-xs font-bold text-slate-400 uppercase tracking-wide">Email</p>
-                                        <p class="font-bold text-brand-navy">help@current-glass.com</p>
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-bold text-brand-blue group-hover:text-brand-accent transition-colors">help@current-glass.com</p>
+                                            <i data-lucide="copy" class="h-3 w-3 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -164,43 +172,57 @@
 
                     <!-- Form -->
                     <div class="lg:col-span-2">
-                        <form class="space-y-6"">
+                        <form id="contact-form" class="space-y-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div class="space-y-2">
                                     <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">First Name</label>
-                                    <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="John" required>
+                                    <input type="text" name="first_name" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="John" required>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">Last Name</label>
-                                    <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="Doe" required>
+                                    <input type="text" name="last_name" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="Doe" required>
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div class="space-y-2">
                                     <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">Email Address</label>
-                                    <input type="email" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="john@example.com" required>
+                                    <input type="email" name="user_email" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="john@example.com" required>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">Phone Number</label>
-                                    <input type="tel" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="(555) 000-0000" required>
+                                    <input type="tel" name="phone_number" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="(555) 000-0000" required>
                                 </div>
                             </div>
 
-                            <div class="space-y-2">
+                            <!-- Custom Select Dropdown -->
+                            <div class="space-y-2 relative" id="service-dropdown-container">
                                 <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">Service Required</label>
-                                <select class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium appearance-none">
-                                    <option>Residential Glass Replacement</option>
-                                    <option>Commercial Glass Services</option>
-                                    <option>Foggy Window Repair</option>
-                                    <option>Safety / Tempered Glass</option>
-                                    <option>Other / General Inquiry</option>
-                                </select>
+                                
+                                <!-- Hidden Input that EmailJS reads -->
+                                <input type="hidden" name="service_type" id="service-type-input" value="Residential Glass Replacement">
+                                
+                                <!-- Custom Trigger Button -->
+                                <div id="dropdown-trigger" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy cursor-pointer flex justify-between items-center hover:border-brand-blue transition-all font-medium group">
+                                    <span id="selected-service-text">Residential Glass Replacement</span>
+                                    <i data-lucide="chevron-down" class="h-5 w-5 text-slate-400 group-hover:text-brand-blue transition-all duration-300"></i>
+                                </div>
+
+                                <!-- Dropdown Menu -->
+                                <div id="dropdown-options" class="hidden absolute top-full left-0 w-full mt-2 bg-white border border-slate-100 rounded-xl shadow-xl z-30 overflow-hidden transform transition-all duration-200 origin-top opacity-0 scale-95">
+                                    <div class="p-1 max-h-60 overflow-y-auto">
+                                        <div class="px-4 py-3 hover:bg-slate-50 hover:text-brand-blue cursor-pointer rounded-lg transition-colors text-slate-600 font-medium" data-value="Residential Glass Replacement">Residential Glass Replacement</div>
+                                        <div class="px-4 py-3 hover:bg-slate-50 hover:text-brand-blue cursor-pointer rounded-lg transition-colors text-slate-600 font-medium" data-value="Commercial Glass Services">Commercial Glass Services</div>
+                                        <div class="px-4 py-3 hover:bg-slate-50 hover:text-brand-blue cursor-pointer rounded-lg transition-colors text-slate-600 font-medium" data-value="Foggy Window Repair">Foggy Window Repair</div>
+                                        <div class="px-4 py-3 hover:bg-slate-50 hover:text-brand-blue cursor-pointer rounded-lg transition-colors text-slate-600 font-medium" data-value="Safety / Tempered Glass">Safety / Tempered Glass</div>
+                                        <div class="px-4 py-3 hover:bg-slate-50 hover:text-brand-blue cursor-pointer rounded-lg transition-colors text-slate-600 font-medium" data-value="Other / General Inquiry">Other / General Inquiry</div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="space-y-2">
                                 <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">How can we help?</label>
-                                <textarea rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="Describe your window or storefront issue..."></textarea>
+                                <textarea name="message" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="Describe your window or storefront issue..."></textarea>
                             </div>
 
                             <button type="submit" class="w-full py-5 bg-brand-blue text-white font-bold rounded-lg shadow-lg hover:bg-brand-navy transition-all transform hover:-translate-y-1">
@@ -224,10 +246,6 @@
                 <p class="text-slate-500 font-medium max-w-sm mb-6 leading-relaxed">
                     Premium glass replacement specializing in IGU reglazing. Better for your home, better for your wallet.
                 </p>
-                <div class="flex gap-4">
-                    <a href="#" class="h-10 w-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:bg-brand-blue hover:text-white transition-all"><i data-lucide="instagram" class="h-5 w-5"></i></a>
-                    <a href="#" class="h-10 w-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:bg-brand-blue hover:text-white transition-all"><i data-lucide="facebook" class="h-5 w-5"></i></a>
-                </div>
             </div>
             
             <div>
@@ -251,6 +269,12 @@
             &copy; 2026 Current Glass.
         </div>
     </footer>
+
+    <!-- Copy Notification Toast -->
+    <div id="copy-notification" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-brand-navy text-white px-6 py-3 rounded-full shadow-2xl translate-y-24 opacity-0 transition-all duration-300 z-50 flex items-center gap-3 pointer-events-none">
+        <i data-lucide="check-circle-2" class="h-5 w-5 text-green-400"></i>
+        <span id="notification-text" class="font-medium text-sm">Copied to clipboard</span>
+    </div>
 
     <!-- Scripts -->
     <script>
@@ -292,18 +316,125 @@
         mobileBtn.addEventListener('click', toggleMenu);
         closeBtn.addEventListener('click', toggleMenu);
         mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
-    </script>
-    <script type="text/javascript">
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent page reload
+
+        // --- CUSTOM DROPDOWN LOGIC ---
+        const dropdownTrigger = document.getElementById('dropdown-trigger');
+        const dropdownOptions = document.getElementById('dropdown-options');
+        const hiddenInput = document.getElementById('service-type-input');
+        const selectedText = document.getElementById('selected-service-text');
+        const chevron = dropdownTrigger.querySelector('i');
+        const optionsList = dropdownOptions.querySelectorAll('div[data-value]');
+
+        function toggleDropdown() {
+            const isHidden = dropdownOptions.classList.contains('hidden');
+            if (isHidden) {
+                dropdownOptions.classList.remove('hidden');
+                // Small timeout to allow display:block to apply before transition
+                setTimeout(() => {
+                    dropdownOptions.classList.remove('opacity-0', 'scale-95');
+                    dropdownOptions.classList.add('opacity-100', 'scale-100');
+                    chevron.classList.add('rotate-180');
+                }, 10);
+            } else {
+                closeDropdown();
+            }
+        }
+
+        function closeDropdown() {
+            dropdownOptions.classList.remove('opacity-100', 'scale-100');
+            dropdownOptions.classList.add('opacity-0', 'scale-95');
+            chevron.classList.remove('rotate-180');
+            setTimeout(() => {
+                dropdownOptions.classList.add('hidden');
+            }, 200);
+        }
+
+        dropdownTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleDropdown();
+        });
+
+        optionsList.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const value = option.getAttribute('data-value');
+                hiddenInput.value = value;
+                selectedText.textContent = value;
+                closeDropdown();
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdownTrigger.contains(e.target) && !dropdownOptions.contains(e.target)) {
+                closeDropdown();
+            }
+        });
+
+        // --- COPY TO CLIPBOARD ---
+        let timeoutId;
+        function copyText(text, label) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification(`${label} copied!`);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback approach
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                   document.execCommand("copy");
+                   showNotification(`${label} copied!`);
+                } catch (e) {
+                   console.error("Fallback copy failed", e);
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+
+        function showNotification(message) {
+            const notification = document.getElementById('copy-notification');
+            const textEl = document.getElementById('notification-text');
             
-            // Send the form (replace with your Service ID and Template ID)
-            emailjs.sendForm('service_x7662r9', 'template_rjlcrz4', this)
+            textEl.textContent = message;
+            notification.classList.remove('translate-y-24', 'opacity-0');
+            
+            if (timeoutId) clearTimeout(timeoutId);
+            
+            timeoutId = setTimeout(() => {
+                notification.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        // --- EMAILJS HANDLER ---
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // UI Feedback
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Sending...';
+            btn.disabled = true;
+
+            // TODO: REPLACE THESE WITH YOUR ACTUAL SERVICE AND TEMPLATE IDs
+            const serviceID = 'service_x7662r9'; 
+            const templateID = 'template_rjlcrz4';
+
+            emailjs.sendForm(serviceID, templateID, this)
                 .then(() => {
-                    alert('Message sent successfully!');
-                    this.reset(); // Clear form
-                }, (error) => {
-                    alert('Failed to send: ' + error.text);
+                    alert('Request sent successfully! Our team will contact you shortly.');
+                    this.reset();
+                    // Reset custom dropdown
+                    hiddenInput.value = 'Residential Glass Replacement';
+                    selectedText.textContent = 'Residential Glass Replacement';
+                    
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, (err) => {
+                    alert('Failed to send request. Please try again or call us directly at (385) 287-5896.');
+                    console.error('EmailJS Error:', JSON.stringify(err));
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
                 });
         });
     </script>
