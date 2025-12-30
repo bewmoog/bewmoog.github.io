@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Current Glass</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Config & Styles -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#1e293b',
+                            blue: '#0284c7', // Primary Blue
+                            light: '#f8fafc',
+                            accent: '#0ea5e9',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #1e293b;
+        }
+
+        .premium-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            border-radius: 1rem; /* rounded-2xl */
+        }
+
+        .premium-card:hover {
+            border-color: #0284c7;
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Text Gradient */
+        .text-gradient {
+            background: linear-gradient(to right, #0284c7, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Feature List Styling */
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <!-- Brand / Logo -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <img src="logo.png" alt="Logo" onerror="this.style.display='none'" class="h-10 w-auto">
+                <span class="font-bold text-2xl tracking-tight text-brand-navy group-hover:text-brand-blue transition-colors">Current<span class="font-sans font-medium text-brand-blue">Glass</span></span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wider text-slate-600">
+                <a href="services.html" class="text-brand-blue transition-colors">SERVICES</a>
+                <a href="process.html" class="hover:text-brand-blue transition-colors">THE PROCESS</a>
+                <a href="contact.html" class="px-6 py-2 bg-brand-blue text-white font-bold rounded-lg shadow-md hover:bg-brand-navy transition-all">GET A QUOTE</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-brand-navy">
+                <i data-lucide="menu" class="h-8 w-8"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8 md:hidden">
+            <button id="close-menu" class="absolute top-8 right-8 text-brand-navy"><i data-lucide="x" class="h-8 w-8"></i></button>
+            <a href="services.html" class="text-2xl font-serif font-bold text-brand-blue mobile-link">Services</a>
+            <a href="process.html" class="hover:text-brand-blue transition-colors mobile-link text-xl font-bold">Our Process</a>
+            <a href="contact.html" class="px-8 py-3 bg-brand-blue text-white font-bold rounded-lg mobile-link">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Image (Absolute) -->
+        <div class="absolute inset-0 z-0">
+            <img src="img8.png" alt="Modern Home with Clear Glass" class="w-full h-full object-cover" />
+            <!-- Extra overlay for mobile readability -->
+            <div class="absolute inset-0 bg-white/60 md:hidden"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="text-left fade-in-section">
+                <p class="text-brand-blue tracking-[0.2em] uppercase text-sm mb-4 font-bold">Home Glass Specialists</p>
+                <h1 class="text-5xl md:text-7xl text-brand-navy mb-6 leading-tight font-serif font-black">
+                    Restore Your<br /><span class="text-gradient">Home's Clarity.</span>
+                </h1>
+                <p class="text-slate-600 max-w-xl text-lg md:text-xl font-medium mb-10 leading-relaxed">
+                    We replace the glass, not the frames. Remove condensation, fix broken seals, and upgrade your home's energy efficiency for a fraction of the cost of renovation.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="contact.html" class="px-8 py-4 bg-brand-blue hover:bg-brand-navy text-white font-bold transition-all duration-300 rounded-lg shadow-lg flex items-center justify-center gap-2">
+                        Get a Free Estimate <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Problems Section -->
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in-section">
+                <h2 class="font-serif font-black text-4xl md:text-5xl text-brand-navy font-bold mb-6">Common Home Glass Issues</h2>
+                <p class="text-slate-600 font-medium text-lg">Over time, residential windows fail. We provide a surgical solution to these common annoyances without tearing apart your walls.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Foggy Glass -->
+                <div class="premium-card p-8 group fade-in-section">
+                    <div class="mb-6 bg-slate-100 w-16 h-16 rounded-full flex items-center justify-center text-slate-500 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <i data-lucide="cloud-fog" class="h-8 w-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-brand-navy mb-4">Foggy Windows</h3>
+                    <p class="text-slate-600 leading-relaxed font-medium">
+                        When the seal on your double-pane window fails, moisture gets trapped inside, creating a permanent "dirty" look that cannot be cleaned. We replace the IGU to restore crystal clear views.
+                    </p>
+                </div>
+
+                <!-- Broken Glass -->
+                <div class="premium-card p-8 group fade-in-section delay-100">
+                    <div class="mb-6 bg-slate-100 w-16 h-16 rounded-full flex items-center justify-center text-slate-500 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <i data-lucide="shield-alert" class="h-8 w-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-brand-navy mb-4">Cracks & Breaks</h3>
+                    <p class="text-slate-600 leading-relaxed font-medium">
+                        Accidents happen. Whether it's a stray baseball or stress crack, we can match your existing glass type and tint to make it look like the damage never happened.
+                    </p>
+                </div>
+
+                <!-- Energy Upgrades -->
+                <div class="premium-card p-8 group fade-in-section delay-200">
+                    <div class="mb-6 bg-slate-100 w-16 h-16 rounded-full flex items-center justify-center text-slate-500 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <i data-lucide="thermometer-sun" class="h-8 w-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-brand-navy mb-4">Energy Efficiency</h3>
+                    <p class="text-slate-600 leading-relaxed font-medium">
+                        Older double-pane windows often lack modern Low-E coatings. We can upgrade your glass to high-performance units that reflect heat in the summer and retain warmth in the winter.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services / Types -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 fade-in-section">
+                    <img src="img5.jpg" class="rounded-2xl shadow-xl w-full">
+                </div>
+                
+                <div class="order-1 lg:order-2 fade-in-section">
+                    <h2 class="font-serif text-4xl md:text-5xl text-brand-navy font-black mb-6">We Handle It All</h2>
+                    <p class="text-slate-600 font-medium text-lg leading-relaxed mb-8">
+                        Our technicians are trained to work with Vinyl, Wood, and Aluminum frames across a wide variety of window styles.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="feature-item">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-brand-blue flex-shrink-0"></i>
+                            <span class="font-bold text-brand-navy">Sliding Patio Doors</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-brand-blue flex-shrink-0"></i>
+                            <span class="font-bold text-brand-navy">Single & Double Hung</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-brand-blue flex-shrink-0"></i>
+                            <span class="font-bold text-brand-navy">Casement Windows</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-brand-blue flex-shrink-0"></i>
+                            <span class="font-bold text-brand-navy">Picture Windows</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-brand-blue flex-shrink-0"></i>
+                            <span class="font-bold text-brand-navy">Arch & Radius Tops</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-brand-blue flex-shrink-0"></i>
+                            <span class="font-bold text-brand-navy">Tempered Safety Glass</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-24 bg-brand-navy text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center fade-in-section">
+            <h2 class="font-serif text-4xl md:text-5xl font-black mb-16">The Homeowner Advantage</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mb-6 border border-white/20">
+                        <i data-lucide="home" class="h-10 w-10 text-brand-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">No Stucco Damage</h3>
+                    <p class="text-slate-300 leading-relaxed max-w-sm font-medium">We leave your frames in the wall. This means no expensive stucco repairs, no drywall patching, and no repainting needed.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mb-6 border border-white/20">
+                        <i data-lucide="zap" class="h-10 w-10 text-brand-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fast Installation</h3>
+                    <p class="text-slate-300 leading-relaxed max-w-sm font-medium">Most residential jobs are completed in just a few hours. We get in, get out, and leave your home cleaner than we found it.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mb-6 border border-white/20">
+                        <i data-lucide="piggy-bank" class="h-10 w-10 text-brand-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cost Effective</h3>
+                    <p class="text-slate-300 leading-relaxed max-w-sm font-medium">Reglazing typically costs 50-70% less than full window replacement. Get the same results for a fraction of the price.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-slate-50 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center fade-in-section">
+             <h2 class="font-serif text-4xl text-brand-navy font-black mb-6">Ready?</h2>
+             <p class="text-slate-600 font-medium text-lg mb-8 max-w-2xl mx-auto">Get a fast, accurate estimate for your residential glass needs. No pressure, just clarity.</p>
+             <a href="contact.html" class="inline-flex items-center py-4 px-8 bg-brand-blue text-white font-bold rounded-lg shadow-lg hover:bg-brand-navy transition-all">
+                Let's Begin <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+             </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 py-16">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-2 mb-6">
+                    <img src="logo.png" alt="Logo" onerror="this.style.display='none'" class="h-10 w-auto">
+                    <span class="font-bold text-xl tracking-tight text-brand-navy transition-colors">Current<span class="font-sans font-medium text-brand-blue">Glass</span></span>
+                </div>
+                <p class="text-slate-500 font-medium max-w-sm mb-6 leading-relaxed">
+                    Premium glass replacement specializing in IGU reglazing. Better for your home, better for your wallet.
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="text-brand-navy font-bold mb-6 uppercase tracking-wider text-xs">Quick Links</h4>
+                <ul class="space-y-4 text-slate-500 font-semibold text-sm">
+                    <li><a href="services.html" class="text-brand-blue transition-colors">Services</a></li>
+                    <li><a href="process.html" class="hover:text-brand-blue transition-colors">Our Process</a></li>
+                    <li><a href="contact.html" class="hover:text-brand-blue transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-brand-navy font-bold mb-6 uppercase tracking-wider text-xs">Direct Contact</h4>
+                <p class="text-slate-500 font-semibold text-sm mb-2">help@current-glass.com</p>
+                <p class="text-brand-blue font-bold text-lg mb-6">(385) 287-5896</p>
+                <p class="text-slate-400 text-xs italic">Serving Central Utah</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-100 text-center text-slate-400 font-medium text-xs">
+            &copy; 2026 Current Glass.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Navbar Scroll
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled', 'py-4');
+                nav.classList.remove('py-6');
+            } else {
+                nav.classList.remove('nav-scrolled', 'py-4');
+                nav.classList.add('py-6');
+            }
+        });
+
+        // Scroll Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+
+        // Mobile Menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+        }
+
+        mobileBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+    </script>
+</body>
+</html>
