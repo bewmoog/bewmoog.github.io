@@ -203,13 +203,13 @@
                                 <input type="hidden" name="service_type" id="service-type-input" value="Residential Glass Replacement">
                                 
                                 <!-- Custom Trigger Button -->
-                                <div id="dropdown-trigger" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy cursor-pointer flex justify-between items-center hover:border-brand-blue transition-all font-medium group">
+                                <div id="dropdown-trigger" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy cursor-pointer flex justify-between items-center hover:border-brand-blue transition-all font-medium group select-none">
                                     <span id="selected-service-text">Residential Glass Replacement</span>
                                     <i data-lucide="chevron-down" class="h-5 w-5 text-slate-400 group-hover:text-brand-blue transition-all duration-300"></i>
                                 </div>
 
                                 <!-- Dropdown Menu -->
-                                <div id="dropdown-options" class="hidden absolute top-full left-0 w-full mt-2 bg-white border border-slate-100 rounded-xl shadow-xl z-30 overflow-hidden transform transition-all duration-200 origin-top opacity-0 scale-95">
+                                <div id="dropdown-options" class="hidden absolute top-full left-0 w-full mt-2 bg-white border border-slate-100 rounded-xl shadow-xl z-30 overflow-hidden transform transition-all duration-200 origin-top opacity-0 scale-95 pointer-events-none">
                                     <div class="p-1 max-h-60 overflow-y-auto">
                                         <div class="px-4 py-3 hover:bg-slate-50 hover:text-brand-blue cursor-pointer rounded-lg transition-colors text-slate-600 font-medium" data-value="Residential Glass Replacement">Residential Glass Replacement</div>
                                         <div class="px-4 py-3 hover:bg-slate-50 hover:text-brand-blue cursor-pointer rounded-lg transition-colors text-slate-600 font-medium" data-value="Commercial Glass Services">Commercial Glass Services</div>
@@ -324,27 +324,54 @@
         const selectedText = document.getElementById('selected-service-text');
         const chevron = dropdownTrigger.querySelector('i');
         const optionsList = dropdownOptions.querySelectorAll('div[data-value]');
+        
+        let dropdownTimeout;
+        let openTimeout;
 
         function toggleDropdown() {
-            const isHidden = dropdownOptions.classList.contains('hidden');
-            if (isHidden) {
-                dropdownOptions.classList.remove('hidden');
-                // Small timeout to allow display:block to apply before transition
-                setTimeout(() => {
-                    dropdownOptions.classList.remove('opacity-0', 'scale-95');
-                    dropdownOptions.classList.add('opacity-100', 'scale-100');
-                    chevron.classList.add('rotate-180');
-                }, 10);
+            // Check if it is hidden OR currently fading out (opacity-0)
+            const isClosedOrClosing = dropdownOptions.classList.contains('hidden') || dropdownOptions.classList.contains('opacity-0');
+            
+            if (isClosedOrClosing) {
+                openDropdown();
             } else {
                 closeDropdown();
             }
         }
 
+        function openDropdown() {
+            // Clear any pending close actions
+            if (dropdownTimeout) clearTimeout(dropdownTimeout);
+            
+            // Make visible immediately for layout
+            dropdownOptions.classList.remove('hidden');
+            dropdownOptions.classList.remove('pointer-events-none');
+            
+            // Trigger transition with slight delay to ensure browser paints 'display: block' first
+            // Clear existing open timeout to avoid conflicts
+            if (openTimeout) clearTimeout(openTimeout);
+            
+            openTimeout = setTimeout(() => {
+                dropdownOptions.classList.remove('opacity-0', 'scale-95');
+                dropdownOptions.classList.add('opacity-100', 'scale-100');
+                chevron.classList.add('rotate-180');
+            }, 10);
+        }
+
         function closeDropdown() {
+            // Clear any pending open actions
+            if (openTimeout) clearTimeout(openTimeout);
+
+            dropdownOptions.classList.add('pointer-events-none');
             dropdownOptions.classList.remove('opacity-100', 'scale-100');
             dropdownOptions.classList.add('opacity-0', 'scale-95');
             chevron.classList.remove('rotate-180');
-            setTimeout(() => {
+            
+            // Clear existing close timeout
+            if (dropdownTimeout) clearTimeout(dropdownTimeout);
+
+            // Wait for transition to finish before hiding
+            dropdownTimeout = setTimeout(() => {
                 dropdownOptions.classList.add('hidden');
             }, 200);
         }
@@ -366,7 +393,10 @@
 
         document.addEventListener('click', (e) => {
             if (!dropdownTrigger.contains(e.target) && !dropdownOptions.contains(e.target)) {
-                closeDropdown();
+                // If clicked outside, and it's currently open (not hidden), close it.
+                if (!dropdownOptions.classList.contains('hidden')) {
+                    closeDropdown();
+                }
             }
         });
 
