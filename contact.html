@@ -16,14 +16,15 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- EmailJS SDK -->
+	<!-- Load EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
-       (function(){
-          emailjs.init({
-            publicKey: "hEWqsk7ZIVpHoXTYP",
-          });
-       })();
+        (function() {
+            // Initialize with your Public Key
+            emailjs.init({
+                publicKey: "hEWqsk7ZIVpHoXTYP",
+            });
+        })();
     </script>
 
     <!-- Custom Config & Styles -->
@@ -110,7 +111,6 @@
 
     <!-- Header / Title -->
     <section class="bg-white py-32 relative overflow-hidden">
-        <div class="absolute inset-0"></div>
         <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
             <h1 class="font-serif text-5xl md:text-6xl font-black mb-6">Get in Touch</h1>
             <p class="text-lg md:text-xl max-w-2xl mx-auto">Start your glass replacement project today. Fill out the form below or give us a call for a free estimate.</p>
@@ -164,43 +164,43 @@
 
                     <!-- Form -->
                     <div class="lg:col-span-2">
-                        <form id="contact-form" class="space-y-6">
+                        <form class="space-y-6"">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div class="space-y-2">
                                     <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">First Name</label>
-                                    <input type="text" name="first_name" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="John" required>
+                                    <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="John" required>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">Last Name</label>
-                                    <input type="text" name="last_name" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="Doe" required>
+                                    <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="Doe" required>
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div class="space-y-2">
                                     <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">Email Address</label>
-                                    <input type="email" name="user_email" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="john@example.com" required>
+                                    <input type="email" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="john@example.com" required>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">Phone Number</label>
-                                    <input type="tel" name="phone_number" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="(555) 000-0000" required>
+                                    <input type="tel" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="(555) 000-0000" required>
                                 </div>
                             </div>
 
                             <div class="space-y-2">
                                 <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">Service Required</label>
-                                <select name="service_type" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium appearance-none">
-                                    <option value="Residential Glass Replacement">Residential Glass Replacement</option>
-                                    <option value="Commercial Glass Services">Commercial Glass Services</option>
-                                    <option value="Foggy Window Repair">Foggy Window Repair</option>
-                                    <option value="Safety / Tempered Glass">Safety / Tempered Glass</option>
-                                    <option value="Other / General Inquiry">Other / General Inquiry</option>
+                                <select class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium appearance-none">
+                                    <option>Residential Glass Replacement</option>
+                                    <option>Commercial Glass Services</option>
+                                    <option>Foggy Window Repair</option>
+                                    <option>Safety / Tempered Glass</option>
+                                    <option>Other / General Inquiry</option>
                                 </select>
                             </div>
 
                             <div class="space-y-2">
                                 <label class="text-sm font-bold text-brand-navy uppercase tracking-wide">How can we help?</label>
-                                <textarea name="message" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="Describe your window or storefront issue..."></textarea>
+                                <textarea rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-4 text-brand-navy focus:outline-none focus:border-brand-blue transition-all font-medium" placeholder="Describe your window or storefront issue..."></textarea>
                             </div>
 
                             <button type="submit" class="w-full py-5 bg-brand-blue text-white font-bold rounded-lg shadow-lg hover:bg-brand-navy transition-all transform hover:-translate-y-1">
@@ -292,39 +292,18 @@
         mobileBtn.addEventListener('click', toggleMenu);
         closeBtn.addEventListener('click', toggleMenu);
         mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
-
-        // --- EMAILJS HANDLER ---
+    </script>
+    <script type="text/javascript">
         document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent page reload
             
-            // UI Feedback
-            const btn = this.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = 'Sending...';
-            btn.disabled = true;
-
-            // TODO: REPLACE THESE WITH YOUR ACTUAL SERVICE AND TEMPLATE IDs
-            const serviceID = 'service_x7662r9'; 
-            const templateID = 'template_rjlcrz4';
-
-            if (serviceID === 'service_x7662r9' || templateID === 'template_rjlcrz4') {
-                alert('EmailJS is not fully configured yet. Please update the serviceID and templateID in the code.');
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-                return;
-            }
-
-            emailjs.sendForm(serviceID, templateID, this)
+            // Send the form (replace with your Service ID and Template ID)
+            emailjs.sendForm('service_x7662r9', 'template_rjlcrz4', this)
                 .then(() => {
-                    alert('Request sent successfully! Our team will contact you shortly.');
-                    this.reset();
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                }, (err) => {
-                    alert('Failed to send request. Please try again or call us directly at (385) 287-5896.');
-                    console.error('EmailJS Error:', JSON.stringify(err));
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
+                    alert('Message sent successfully!');
+                    this.reset(); // Clear form
+                }, (error) => {
+                    alert('Failed to send: ' + error.text);
                 });
         });
     </script>
