@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Current Glass</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#1e293b',
+                            blue: '#0284c7',
+                            light: '#f8fafc',
+                            accent: '#0ea5e9',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #ffffff; color: #1e293b; }
+        .nav-scrolled { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-section.is-visible { opacity: 1; transform: none; }
+        .legal-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .legal-content li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden flex flex-col min-h-screen">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="font-bold text-2xl tracking-tight text-brand-navy">Current<span class="font-sans font-medium text-brand-blue">Glass</span></span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wider text-slate-600">
+                <a href="index.html" class="hover:text-brand-blue transition-colors">HOME</a>
+                <a href="process.html" class="hover:text-brand-blue transition-colors">THE PROCESS</a>
+                <a href="contact.html" class="px-6 py-2 bg-brand-blue text-white font-bold rounded-lg shadow-md hover:bg-brand-navy transition-all">GET A QUOTE</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-slate-50 pt-40 pb-16 border-b border-slate-100">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="font-serif text-4xl md:text-5xl font-black mb-4 text-brand-navy">Terms & Conditions</h1>
+            <p class="text-slate-500 font-medium text-sm">Last Updated: May 2026</p>
+        </div>
+    </section>
+
+    <main class="flex-grow bg-white py-16">
+        <div class="max-w-3xl mx-auto px-6 fade-in-section">
+            <div class="legal-content text-slate-600 font-medium leading-relaxed space-y-8">
+                
+                <section>
+                    <h2 class="text-2xl font-serif font-bold text-brand-navy mb-4">1. Agreement to Terms</h2>
+                    <p>By accessing or using the Current Glass website and services, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use our services.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-serif font-bold text-brand-navy mb-4">2. Services</h2>
+                    <p>Current Glass provides premium glass replacement and IGU reglazing services. While we strive for absolute precision, all estimates provided via the website are preliminary until a physical inspection of the site is completed.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-serif font-bold text-brand-navy mb-4">3. Communication & SMS Policy</h2>
+                    <p class="mb-4 text-brand-navy font-bold">By providing your mobile phone number on our contact forms, you explicitly consent to the following:</p>
+                    <ul class="space-y-2">
+                        <li><strong>Transactional Messaging:</strong> You agree to receive messages related to your account, service requests, and appointment reminders.</li>
+                        <li><strong>Marketing Messaging:</strong> If opted-in, you agree to receive promotional messages regarding special offers and updates.</li>
+                        <li><strong>Opt-Out:</strong> You can reply <strong>STOP</strong> at any time to unsubscribe. Reply <strong>HELP</strong> for assistance.</li>
+                        <li><strong>Terms:</strong> Message and data rates may apply. Message frequency varies.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-serif font-bold text-brand-navy mb-4">4. Payments</h2>
+                    <p>Payment terms will be outlined in the specific service contract provided after your initial quote. We reserve the right to require a deposit before beginning custom glass fabrication.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-serif font-bold text-brand-navy mb-4">5. Liability</h2>
+                    <p>Current Glass is not liable for pre-existing damage to window frames or structures discovered during the reglazing process. Our liability is limited to the cost of the services provided.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-serif font-bold text-brand-navy mb-4">6. Contact</h2>
+                    <p>Questions regarding these terms should be directed to <span class="text-brand-blue font-bold">aeyden@current-glass.com</span>.</p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-100 py-16">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-slate-400 text-xs">&copy; 2026 Current Glass. Serving Central Utah.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
