@@ -1,514 +1,1137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Our Process | Current Glass</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <title>Our Process | Current Glass</title>
 
-    <!-- Custom Config & Styles -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            navy: '#1e293b',
-                            blue: '#0284c7', // Primary Blue
-                            light: '#f8fafc',
-                            accent: '#0ea5e9',
-                        }
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Lucide Icons -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+
+        <!-- Custom Config & Styles -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            brand: {
+                                navy: "#1e293b",
+                                blue: "#0284c7", // Primary Blue
+                                light: "#f8fafc",
+                                accent: "#0ea5e9",
+                            },
+                        },
+                        fontFamily: {
+                            sans: ["Montserrat", "sans-serif"],
+                            serif: ["Cormorant Garamond", "serif"],
+                        },
                     },
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                        serif: ['Cormorant Garamond', 'serif'],
-                    }
+                },
+            };
+        </script>
+
+        <style>
+            body {
+                background-color: #ffffff;
+                color: #1e293b;
+            }
+
+            .premium-card {
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                box-shadow:
+                    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+                transition: all 0.3s ease;
+                border-radius: 1rem; /* rounded-2xl */
+            }
+
+            .premium-card:hover {
+                border-color: #0284c7;
+                transform: translateY(-4px);
+                box-shadow:
+                    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+
+            .nav-scrolled {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(8px);
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Hero Text Gradient */
+            .text-gradient {
+                background: linear-gradient(to right, #0284c7, #0ea5e9);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .fade-in-section {
+                opacity: 0;
+                transform: translateY(20px);
+                transition:
+                    opacity 0.8s ease-out,
+                    transform 0.8s ease-out;
+                will-change: opacity, visibility;
+            }
+
+            .fade-in-section.is-visible {
+                opacity: 1;
+                transform: none;
+            }
+
+            /* Timeline Connector Line */
+            .timeline-line::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 2rem;
+                width: 2px;
+                background: #e2e8f0;
+                z-index: 0;
+            }
+
+            @media (min-width: 768px) {
+                .timeline-line::before {
+                    left: 50%;
+                    transform: translateX(-50%);
                 }
             }
-        }
-    </script>
+        </style>
+    </head>
+    <body class="antialiased overflow-x-hidden">
+        <!-- Navigation -->
+        <nav
+            id="navbar"
+            class="fixed w-full z-50 transition-all duration-300 py-6"
+        >
+            <div
+                class="max-w-7xl mx-auto px-6 flex justify-between items-center"
+            >
+                <!-- Brand / Logo -->
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <img
+                        src="logo.png"
+                        alt="Logo"
+                        onerror="this.style.display = 'none'"
+                        class="h-10 w-auto"
+                    />
+                    <span
+                        class="font-bold text-2xl tracking-tight text-brand-navy group-hover:text-brand-blue transition-colors"
+                        >Current<span
+                            class="font-sans font-medium text-brand-blue"
+                            >Glass</span
+                        ></span
+                    >
+                </a>
 
-    <style>
-        body {
-            background-color: #ffffff;
-            color: #1e293b;
-        }
+                <!-- Desktop Menu -->
+                <div
+                    class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wider text-slate-600"
+                >
+                    <a
+                        href="index.html"
+                        class="hover:text-brand-blue transition-colors"
+                        >HOME</a
+                    >
+                    <a
+                        href="process.html"
+                        class="text-brand-blue transition-colors"
+                        >THE PROCESS</a
+                    >
+                    <a
+                        href="contact.html"
+                        class="px-6 py-2 bg-brand-blue text-white font-bold rounded-lg shadow-md hover:bg-brand-navy transition-all"
+                        >GET A QUOTE</a
+                    >
+                </div>
 
-        .premium-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s ease;
-            border-radius: 1rem; /* rounded-2xl */
-        }
-
-        .premium-card:hover {
-            border-color: #0284c7;
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .nav-scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Hero Text Gradient */
-        .text-gradient {
-            background: linear-gradient(to right, #0284c7, #0ea5e9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            will-change: opacity, visibility;
-        }
-        
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: none;
-        }
-
-        /* Timeline Connector Line */
-        .timeline-line::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 2rem;
-            width: 2px;
-            background: #e2e8f0;
-            z-index: 0;
-        }
-        
-        @media (min-width: 768px) {
-            .timeline-line::before {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-    </style>
-</head>
-<body class="antialiased overflow-x-hidden">
-
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <!-- Brand / Logo -->
-            <a href="index.html" class="flex items-center gap-2 group">
-                <img src="logo.png" alt="Logo" onerror="this.style.display='none'" class="h-10 w-auto">
-                <span class="font-bold text-2xl tracking-tight text-brand-navy group-hover:text-brand-blue transition-colors">Current<span class="font-sans font-medium text-brand-blue">Glass</span></span>
-            </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wider text-slate-600">
-                <a href="index.html" class="hover:text-brand-blue transition-colors">HOME</a>
-                <a href="process.html" class="text-brand-blue transition-colors">THE PROCESS</a>
-                <a href="contact.html" class="px-6 py-2 bg-brand-blue text-white font-bold rounded-lg shadow-md hover:bg-brand-navy transition-all">GET A QUOTE</a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-brand-navy">
+                    <i data-lucide="menu" class="h-8 w-8"></i>
+                </button>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-brand-navy">
-                <i data-lucide="menu" class="h-8 w-8"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8 md:hidden">
-            <button id="close-menu" class="absolute top-8 right-8 text-brand-navy"><i data-lucide="x" class="h-8 w-8"></i></button>
-            <a href="index.html" class="hover:text-brand-blue transition-colors mobile-link text-xl font-bold">Home</a>
-            <a href="process.html" class="text-2xl font-serif font-bold text-brand-blue mobile-link">Our Process</a>
-            <a href="contact.html" class="px-8 py-3 bg-brand-blue text-white font-bold rounded-lg mobile-link">Get Started</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20">
-        <!-- Decoration -->
-        <div class="absolute bottom-0 translate-y-1/2 w-[1500px] h-[100px] bg-sky-500/50 rounded-full blur-3xl"></div>
-        
-
-        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center fade-in-section">
-            <p class="text-brand-blue tracking-[0.2em] uppercase text-sm mb-4 font-bold">Transparency at Every Step</p>
-            <h1 class="text-5xl md:text-7xl text-brand-navy mb-8 leading-tight font-serif font-black">
-                From Broken or Foggy to <span class="text-gradient">Flawless.</span>
-            </h1>
-            <p class="text-slate-600 max-w-2xl mx-auto text-lg md:text-xl font-medium leading-relaxed">
-                We've refined glass replacement down to a science. No messy construction, no long wait times, and no need to replace your entire window frame.
-            </p>
-        </div>
-    </section>
-
-    <!-- Detailed Timeline Section -->
-    <section class="py-24 bg-white relative">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="timeline-line relative space-y-12 md:space-y-24">
-                
-                <!-- Step 1 -->
-                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center fade-in-section">
-                    <!-- Icon Marker -->
-                    <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-6 md:top-1/2 h-4 w-4 bg-white border-4 border-brand-blue rounded-full z-10"></div>
-                    
-                    <div class="md:text-right order-1 md:order-1 pl-16 md:pl-0">
-                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-blue/10 text-brand-blue mb-4 md:ml-auto md:mr-0">
-                            <i data-lucide="phone" class="h-6 w-6"></i>
-                        </div>
-                        <h3 class="text-3xl font-serif font-bold text-brand-navy mb-3">1. Initial Consultation</h3>
-                        <p class="text-slate-600 font-medium leading-relaxed">It starts with a simple call or form submission. We discuss your needs, give you a price estimate, and schedule a time to visit your property.</p>
-                    </div>
-                    <div class="order-2 md:order-2 pl-16 md:pl-0">
-                        <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
-                            <span class="text-xs font-bold text-brand-blue uppercase tracking-widest">What to expect</span>
-                            <p class="text-brand-navy font-serif font-bold text-2xl mt-2">Zero pressure. Honest advice.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center fade-in-section">
-                    <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-6 md:top-1/2 h-4 w-4 bg-white border-4 border-brand-blue rounded-full z-10"></div>
-
-                    <div class="order-2 pl-16 md:pl-0">
-                        <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
-                            <span class="text-xs font-bold text-brand-blue uppercase tracking-widest">What to expect</span>
-                            <p class="text-brand-navy font-serif font-bold text-2xl mt-2">Laser-accurate dimensions.</p>
-                        </div>
-                    </div>
-                    <div class="order-1 pl-16 md:pl-0">
-                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-blue/10 text-brand-blue mb-4">
-                            <i data-lucide="ruler" class="h-6 w-6"></i>
-                        </div>
-                        <h3 class="text-3xl font-serif font-bold text-brand-navy mb-3">2. Precision Measurement</h3>
-                        <p class="text-slate-600 font-medium leading-relaxed">Our technicians arrive to measure your glass to the millimeter. We assess the glass thickness, tint, and Low-E coating type to match your existing windows perfectly, or upgrade to your preference.</p>
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center fade-in-section">
-                    <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-6 md:top-1/2 h-4 w-4 bg-white border-4 border-brand-blue rounded-full z-10"></div>
-
-                    <div class="md:text-right order-1 md:order-1 pl-16 md:pl-0">
-                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-blue/10 text-brand-blue mb-4 md:ml-auto md:mr-0">
-                            <i data-lucide="factory" class="h-6 w-6"></i>
-                        </div>
-                        <h3 class="text-3xl font-serif font-bold text-brand-navy mb-3">3. Custom Fabrication</h3>
-                        <p class="text-slate-600 font-medium leading-relaxed">We don't cut glass in your driveway. Your double-pane unit (IGU) is manufactured in a climate-controlled facility, sealed with Argon gas for maximum insulation.</p>
-                    </div>
-                    <div class="order-2 md:order-2 pl-16 md:pl-0">
-                        <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
-                            <span class="text-xs font-bold text-brand-blue uppercase tracking-widest">What to expect</span>
-                            <p class="text-brand-navy font-serif font-bold text-2xl mt-2">Factory-sealed longevity.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center fade-in-section">
-                    <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-6 md:top-1/2 h-4 w-4 bg-white border-4 border-brand-blue rounded-full z-10"></div>
-
-                    <div class="order-2 pl-16 md:pl-0">
-                        <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
-                            <span class="text-xs font-bold text-brand-blue uppercase tracking-widest">What to expect</span>
-                            <p class="text-brand-navy font-serif font-bold text-2xl mt-2">Done in hours, not days.</p>
-                        </div>
-                    </div>
-                    <div class="order-1 pl-16 md:pl-0">
-                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-blue/10 text-brand-blue mb-4">
-                            <i data-lucide="hammer" class="h-6 w-6"></i>
-                        </div>
-                        <h3 class="text-3xl font-serif font-bold text-brand-navy mb-3">4. Installation & Cleanup</h3>
-                        <p class="text-slate-600 font-medium leading-relaxed">On installation day, we carefully remove the stops, take out the failed glass unit, clean the frame, and install the new unit. We haul away the old glass and leave your home spotless.</p>
-                    </div>
-                </div>
-
+            <!-- Mobile Menu Overlay -->
+            <div
+                id="mobile-menu"
+                class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8 md:hidden"
+            >
+                <button
+                    id="close-menu"
+                    class="absolute top-8 right-8 text-brand-navy"
+                >
+                    <i data-lucide="x" class="h-8 w-8"></i>
+                </button>
+                <a
+                    href="index.html"
+                    class="hover:text-brand-blue transition-colors mobile-link text-xl font-bold"
+                    >Home</a
+                >
+                <a
+                    href="process.html"
+                    class="text-2xl font-serif font-bold text-brand-blue mobile-link"
+                    >Our Process</a
+                >
+                <a
+                    href="contact.html"
+                    class="px-8 py-3 bg-brand-blue text-white font-bold rounded-lg mobile-link"
+                    >Get Started</a
+                >
             </div>
-        </div>
-    </section>
+        </nav>
 
-    <!-- Why Just Glass? (Education) -->
-    <section class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16 fade-in-section">
-                <h2 class="font-serif font-black text-4xl md:text-5xl text-brand-navy font-bold mb-6">The IGU Advantage</h2>
-                <p class="text-slate-600 font-medium text-lg">Why replace perfectly good frames when you can just upgrade the glass? Here is how our process stacks up against full window replacement.</p>
-            </div>
+        <!-- Hero Section -->
+        <section
+            class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20"
+        >
+            <!-- Decoration -->
+            <div
+                class="absolute bottom-0 translate-y-1/2 w-[1500px] h-[100px] bg-sky-500/50 rounded-full blur-3xl"
+            ></div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Cost -->
-                <div class="premium-card hover:border-none p-8 fade-in-section">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="p-2 bg-green-100 text-green-600 rounded-lg">
-                            <i data-lucide="dollar-sign" class="h-6 w-6"></i>
-                        </div>
-                        <h3 class="text-2xl font-serif font-bold text-brand-navy">Cost Savings</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center text-sm border-b border-slate-100 pb-2">
-                            <span class="text-slate-500 font-medium">Full Window Replacement</span>
-                            <span class="text-red-500 font-bold">$$$$</span>
-                        </div>
-                        <div class="flex justify-between items-center text-sm pb-2">
-                            <span class="text-slate-500 font-medium">Current Glass Process</span>
-                            <span class="text-green-600 font-bold">$</span>
-                        </div>
-                        <p class="text-slate-600 text-sm mt-4 leading-relaxed font-medium">
-                            Save up to 70% by keeping your existing vinyl, wood, or aluminum frames and only paying for the glass itself.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Time -->
-                <div class="premium-card hover:border-none p-8 fade-in-section delay-100">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="p-2 bg-blue-100 text-brand-blue rounded-lg">
-                            <i data-lucide="clock" class="h-6 w-6"></i>
-                        </div>
-                        <h3 class="text-2xl font-serif font-bold text-brand-navy">Time Efficiency</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center text-sm border-b border-slate-100 pb-2">
-                            <span class="text-slate-500 font-medium">Full Window Replacement</span>
-                            <span class="text-slate-400 font-bold">2-4 Days</span>
-                        </div>
-                        <div class="flex justify-between items-center text-sm pb-2">
-                            <span class="text-slate-500 font-medium">Current Glass Process</span>
-                            <span class="text-brand-blue font-bold">1-3 Hours</span>
-                        </div>
-                        <p class="text-slate-600 text-sm mt-4 leading-relaxed font-medium">
-                            Since we don't remove the frames from the wall, installation is incredibly fast and minimally intrusive.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Mess -->
-                <div class="premium-card hover:border-none p-8 fade-in-section delay-200">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="p-2 bg-purple-100 text-purple-600 rounded-lg">
-                            <i data-lucide="sparkles" class="h-6 w-6"></i>
-                        </div>
-                        <h3 class="text-2xl font-serif font-bold text-brand-navy">Mess & Impact</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center text-sm border-b border-slate-100 pb-2">
-                            <span class="text-slate-500 font-medium">Full Window Replacement</span>
-                            <span class="text-slate-400 font-bold">Stucco/Paint Damage</span>
-                        </div>
-                        <div class="flex justify-between items-center text-sm pb-2">
-                            <span class="text-slate-500 font-medium">Current Glass Process</span>
-                            <span class="text-purple-600 font-bold">Zero Structural Damage</span>
-                        </div>
-                        <p class="text-slate-600 text-sm mt-4 leading-relaxed font-medium">
-                            No stucco repair, no painting, and no trim work required. We leave your home exactly as we found it—just clearer.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="font-serif font-black text-4xl text-brand-navy text-center mb-16 fade-in-section">Frequently Asked Questions</h2>
-            
-            <div class="space-y-6 fade-in-section">
-                <!-- Question 1 -->
-                <div class="border border-slate-200 rounded-xl p-6 hover:border-brand-blue transition-colors cursor-pointer group">
-                    <details class="group">
-                        <summary class="flex justify-between items-center font-bold text-brand-navy text-lg list-none cursor-pointer">
-                            <span>How long does it take to get my glass?</span>
-                            <span class="transition-transform group-open:rotate-180">
-                                <i data-lucide="chevron-down" class="h-5 w-5 text-brand-blue"></i>
-                            </span>
-                        </summary>
-                        <p class="text-slate-600 mt-4 leading-relaxed font-medium">
-                            Standard insulated units take just 2 weeks to fabricate. Once we receive the glass from the manufacturer, we schedule installation immediately, often within the same week.
-                        </p>
-                    </details>
-                </div>
-
-                <!-- Question 2 -->
-                <div class="border border-slate-200 rounded-xl p-6 hover:border-brand-blue transition-colors cursor-pointer group">
-                    <details class="group">
-                        <summary class="flex justify-between items-center font-bold text-brand-navy text-lg list-none cursor-pointer">
-                            <span>Do you replace the screen as well?</span>
-                            <span class="transition-transform group-open:rotate-180">
-                                <i data-lucide="chevron-down" class="h-5 w-5 text-brand-blue"></i>
-                            </span>
-                        </summary>
-                        <p class="text-slate-600 mt-4 leading-relaxed font-medium">
-                            Yes! We offer free screen mesh replacement for every window pane we replace. It's part of our "Total Clarity" promise.
-                        </p>
-                    </details>
-                </div>
-
-                <!-- Question 3 -->
-                <div class="border border-slate-200 rounded-xl p-6 hover:border-brand-blue transition-colors cursor-pointer group">
-                    <details class="group">
-                        <summary class="flex justify-between items-center font-bold text-brand-navy text-lg list-none cursor-pointer">
-                            <span>What if my frames are wood or aluminum?</span>
-                            <span class="transition-transform group-open:rotate-180">
-                                <i data-lucide="chevron-down" class="h-5 w-5 text-brand-blue"></i>
-                            </span>
-                        </summary>
-                        <p class="text-slate-600 mt-4 leading-relaxed font-medium">
-                            We work with Vinyl, Aluminum, and Wood frames. Our process is adaptable to almost any residential window system.
-                        </p>
-                    </details>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-24 bg-brand-navy relative overflow-hidden">
-        <div class="absolute inset-0 bg-brand-blue/5"></div>
-        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center fade-in-section">
-             <h2 class="font-serif text-4xl text-white font-black mb-6">Start Your Project</h2>
-             <p class="text-slate-300 font-medium text-lg mb-8 max-w-2xl mx-auto">Don't let your old windows cloud your view. Contact us today for a seamless glass replacement experience.</p>
-             <a href="contact.html" class="inline-flex items-center py-4 px-8 bg-brand-blue text-white font-bold rounded-lg shadow-lg hover:bg-white hover:text-brand-navy transition-all">
-                Get a Free Quote <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
-             </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-100 py-16">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div class="col-span-1 md:col-span-2">
-                <div class="flex items-center gap-2 mb-6">
-                    <img src="logo.png" alt="Logo" onerror="this.style.display='none'" class="h-10 w-auto">
-                    <span class="font-bold text-xl tracking-tight text-brand-navy transition-colors">Current<span class="font-sans font-medium text-brand-blue">Glass</span></span>
-                </div>
-                <p class="text-slate-500 font-medium max-w-sm mb-6 leading-relaxed">
-                    Premium glass replacement specializing in IGU reglazing. Better for your home, better for your wallet.
+            <div
+                class="relative z-10 max-w-5xl mx-auto px-6 text-center fade-in-section"
+            >
+                <p
+                    class="text-brand-blue tracking-[0.2em] uppercase text-sm mb-4 font-bold"
+                >
+                    Transparency at Every Step
+                </p>
+                <h1
+                    class="text-5xl md:text-7xl text-brand-navy mb-8 leading-tight font-serif font-black"
+                >
+                    From Broken or Foggy to
+                    <span class="text-gradient">Flawless.</span>
+                </h1>
+                <p
+                    class="text-slate-600 max-w-2xl mx-auto text-lg md:text-xl font-medium leading-relaxed"
+                >
+                    We've refined glass replacement down to a science. No messy
+                    construction, no long wait times, and no need to replace
+                    your entire window frame.
                 </p>
             </div>
-            
-            <div>
-                <h4 class="text-brand-navy font-bold mb-6 uppercase tracking-wider text-xs">Quick Links</h4>
-                <ul class="space-y-4 text-slate-500 font-semibold text-sm">
-                    <li><a href="index.html" class="hover:text-brand-blue transition-colors">Home</a></li>
-                    <li><a href="process.html" class="text-brand-blue transition-colors">Our Process</a></li>
-                    <li><a href="contact.html" class="hover:text-brand-blue transition-colors">Contact Us</a></li>
-                    <li><a href="privacypolicy.html" class="hover:text-brand-blue transition-colors">Privacy Policy</a></li>
-                </ul>
-            </div>
+        </section>
+        <section class="py-24 bg-brand-light">
+            <div class="max-w-7xl mx-auto px-6">
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+                >
+                    <div class="fade-in-section">
+                        <h2
+                            class="font-serif text-4xl md:text-5xl text-brand-navy font-black mb-6"
+                        >
+                            Preparing Your Home
+                        </h2>
+                        <p
+                            class="text-slate-600 font-medium text-lg leading-relaxed mb-8"
+                        >
+                            Our process is designed to be "surgical"—meaning we
+                            get in and out with zero mess. To help us ensure a
+                            flawless installation, we recommend a few simple
+                            steps before our arrival.
+                        </p>
 
-            <div>
-                <h4 class="text-brand-navy font-bold mb-6 uppercase tracking-wider text-xs">Direct Contact</h4>
-                <div class="cursor-pointer" onclick="copyText('aeyden@current-glass.com', 'Email address')" title="Click to copy">
-                <p class="text-slate-500 font-semibold text-sm mb-2">aeyden@current-glass.com</p>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div
+                                    class="mt-1 flex-shrink-0 w-8 h-8 rounded-lg bg-brand-blue text-white flex items-center justify-center"
+                                >
+                                    <i data-lucide="layout" class="h-5 w-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-navy">
+                                        Clear the Workspace
+                                    </h4>
+                                    <p class="text-slate-500 text-sm">
+                                        Please move any furniture, plants, or
+                                        fragile items at least 3 feet away from
+                                        the window being serviced.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div
+                                    class="mt-1 flex-shrink-0 w-8 h-8 rounded-lg bg-brand-blue text-white flex items-center justify-center"
+                                >
+                                    <i data-lucide="blinds" class="h-5 w-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-navy">
+                                        Window Coverings
+                                    </h4>
+                                    <p class="text-slate-500 text-sm">
+                                        Remove or pull back any blinds,
+                                        curtains, or shutters so our technicians
+                                        have full access to the frame stops.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div
+                                    class="mt-1 flex-shrink-0 w-8 h-8 rounded-lg bg-brand-blue text-white flex items-center justify-center"
+                                >
+                                    <i data-lucide="dog" class="h-5 w-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-navy">
+                                        Secure Your Pets
+                                    </h4>
+                                    <p class="text-slate-500 text-sm">
+                                        For the safety of your pets and our
+                                        team, please keep animals in a separate
+                                        room during the installation process.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="fade-in-section bg-white p-8 rounded-3xl border border-slate-100 shadow-xl"
+                    >
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="p-3 bg-brand-blue/10 rounded-full">
+                                <i
+                                    data-lucide="info"
+                                    class="h-6 w-6 text-brand-blue"
+                                ></i>
+                            </div>
+                            <h3
+                                class="text-2xl font-serif font-bold text-brand-navy"
+                            >
+                                The Day Of
+                            </h3>
+                        </div>
+                        <ul class="space-y-4 font-medium text-slate-600">
+                            <li class="flex items-center gap-3">
+                                <i
+                                    data-lucide="check"
+                                    class="h-5 w-5 text-green-500"
+                                ></i>
+                                Technicians will text 30 mins before arrival
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i
+                                    data-lucide="check"
+                                    class="h-5 w-5 text-green-500"
+                                ></i>
+                                Physical inspection to confirm measurements
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i
+                                    data-lucide="check"
+                                    class="h-5 w-5 text-green-500"
+                                ></i>
+                                Final walkthrough and clarity check
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="cursor-pointer" onclick="copyText('(385) 287-5896', '(385) 287-5896')" title="Click to copy">
-                <p class="text-brand-blue font-bold text-lg mb-6">(385) 287-5896</p>
-                </div>
-                <p class="text-slate-400 text-xs italic">Serving Central Utah</p>
             </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-100 text-center text-slate-400 font-medium text-xs">
-            &copy; 2026 Current Glass.
-        </div>
-    </footer>
-    
-    <!-- Copy Notification Toast -->
-    <div id="copy-notification" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-brand-navy text-white px-6 py-3 rounded-full shadow-2xl translate-y-24 opacity-0 transition-all duration-300 z-50 flex items-center gap-3 pointer-events-none">
-        <i data-lucide="check-circle-2" class="h-5 w-5 text-green-400"></i>
-        <span id="notification-text" class="font-medium text-sm">Copied to clipboard</span>
-    </div>
+        </section>
+        <!-- Detailed Timeline Section -->
+        <section class="py-24 bg-white relative">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="timeline-line relative space-y-12 md:space-y-24">
+                    <!-- Step 1 -->
+                    <div
+                        class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center fade-in-section"
+                    >
+                        <!-- Icon Marker -->
+                        <div
+                            class="absolute left-8 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-6 md:top-1/2 h-4 w-4 bg-white border-4 border-brand-blue rounded-full z-10"
+                        ></div>
 
-    <!-- Scripts -->
-    <script>
-        lucide.createIcons();
+                        <div
+                            class="md:text-right order-1 md:order-1 pl-16 md:pl-0"
+                        >
+                            <div
+                                class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-blue/10 text-brand-blue mb-4 md:ml-auto md:mr-0"
+                            >
+                                <i data-lucide="phone" class="h-6 w-6"></i>
+                            </div>
+                            <h3
+                                class="text-3xl font-serif font-bold text-brand-navy mb-3"
+                            >
+                                1. Initial Consultation
+                            </h3>
+                            <p
+                                class="text-slate-600 font-medium leading-relaxed"
+                            >
+                                It starts with a simple call or form submission.
+                                We discuss your needs, give you a price
+                                estimate, and schedule a time to visit your
+                                property.
+                            </p>
+                        </div>
+                        <div class="order-2 md:order-2 pl-16 md:pl-0">
+                            <div
+                                class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm"
+                            >
+                                <span
+                                    class="text-xs font-bold text-brand-blue uppercase tracking-widest"
+                                    >What to expect</span
+                                >
+                                <p
+                                    class="text-brand-navy font-serif font-bold text-2xl mt-2"
+                                >
+                                    Zero pressure. Honest advice.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
-        // Navbar Scroll
-        const nav = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.classList.add('nav-scrolled', 'py-4');
-                nav.classList.remove('py-6');
-            } else {
-                nav.classList.remove('nav-scrolled', 'py-4');
-                nav.classList.add('py-6');
+                    <!-- Step 2 -->
+                    <div
+                        class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center fade-in-section"
+                    >
+                        <div
+                            class="absolute left-8 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-6 md:top-1/2 h-4 w-4 bg-white border-4 border-brand-blue rounded-full z-10"
+                        ></div>
+
+                        <div class="order-2 pl-16 md:pl-0">
+                            <div
+                                class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm"
+                            >
+                                <span
+                                    class="text-xs font-bold text-brand-blue uppercase tracking-widest"
+                                    >What to expect</span
+                                >
+                                <p
+                                    class="text-brand-navy font-serif font-bold text-2xl mt-2"
+                                >
+                                    Laser-accurate dimensions.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="order-1 pl-16 md:pl-0">
+                            <div
+                                class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-blue/10 text-brand-blue mb-4"
+                            >
+                                <i data-lucide="ruler" class="h-6 w-6"></i>
+                            </div>
+                            <h3
+                                class="text-3xl font-serif font-bold text-brand-navy mb-3"
+                            >
+                                2. Precision Measurement
+                            </h3>
+                            <p
+                                class="text-slate-600 font-medium leading-relaxed"
+                            >
+                                Our technicians arrive to measure your glass to
+                                the millimeter. We assess the glass thickness,
+                                tint, and Low-E coating type to match your
+                                existing windows perfectly, or upgrade to your
+                                preference.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center fade-in-section"
+                    >
+                        <div
+                            class="absolute left-8 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-6 md:top-1/2 h-4 w-4 bg-white border-4 border-brand-blue rounded-full z-10"
+                        ></div>
+
+                        <div
+                            class="md:text-right order-1 md:order-1 pl-16 md:pl-0"
+                        >
+                            <div
+                                class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-blue/10 text-brand-blue mb-4 md:ml-auto md:mr-0"
+                            >
+                                <i data-lucide="factory" class="h-6 w-6"></i>
+                            </div>
+                            <h3
+                                class="text-3xl font-serif font-bold text-brand-navy mb-3"
+                            >
+                                3. Custom Fabrication
+                            </h3>
+                            <p
+                                class="text-slate-600 font-medium leading-relaxed"
+                            >
+                                We don't cut glass in your driveway. Your
+                                double-pane unit (IGU) is manufactured in a
+                                climate-controlled facility, sealed with Argon
+                                gas for maximum insulation.
+                            </p>
+                        </div>
+                        <div class="order-2 md:order-2 pl-16 md:pl-0">
+                            <div
+                                class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm"
+                            >
+                                <span
+                                    class="text-xs font-bold text-brand-blue uppercase tracking-widest"
+                                    >What to expect</span
+                                >
+                                <p
+                                    class="text-brand-navy font-serif font-bold text-2xl mt-2"
+                                >
+                                    Factory-sealed longevity.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div
+                        class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center fade-in-section"
+                    >
+                        <div
+                            class="absolute left-8 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-6 md:top-1/2 h-4 w-4 bg-white border-4 border-brand-blue rounded-full z-10"
+                        ></div>
+
+                        <div class="order-2 pl-16 md:pl-0">
+                            <div
+                                class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm"
+                            >
+                                <span
+                                    class="text-xs font-bold text-brand-blue uppercase tracking-widest"
+                                    >What to expect</span
+                                >
+                                <p
+                                    class="text-brand-navy font-serif font-bold text-2xl mt-2"
+                                >
+                                    Done in hours, not days.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="order-1 pl-16 md:pl-0">
+                            <div
+                                class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-blue/10 text-brand-blue mb-4"
+                            >
+                                <i data-lucide="hammer" class="h-6 w-6"></i>
+                            </div>
+                            <h3
+                                class="text-3xl font-serif font-bold text-brand-navy mb-3"
+                            >
+                                4. Installation & Cleanup
+                            </h3>
+                            <p
+                                class="text-slate-600 font-medium leading-relaxed"
+                            >
+                                On installation day, we carefully remove the
+                                stops, take out the failed glass unit, clean the
+                                frame, and install the new unit. We haul away
+                                the old glass and leave your home spotless.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Just Glass? (Education) -->
+        <section class="py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div
+                    class="text-center max-w-3xl mx-auto mb-16 fade-in-section"
+                >
+                    <h2
+                        class="font-serif font-black text-4xl md:text-5xl text-brand-navy font-bold mb-6"
+                    >
+                        The IGU Advantage
+                    </h2>
+                    <p class="text-slate-600 font-medium text-lg">
+                        Why replace perfectly good frames when you can just
+                        upgrade the glass? Here is how our process stacks up
+                        against full window replacement.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Cost -->
+                    <div
+                        class="premium-card hover:border-none p-8 fade-in-section"
+                    >
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="p-2 bg-green-100 text-green-600 rounded-lg"
+                            >
+                                <i
+                                    data-lucide="dollar-sign"
+                                    class="h-6 w-6"
+                                ></i>
+                            </div>
+                            <h3
+                                class="text-2xl font-serif font-bold text-brand-navy"
+                            >
+                                Cost Savings
+                            </h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div
+                                class="flex justify-between items-center text-sm border-b border-slate-100 pb-2"
+                            >
+                                <span class="text-slate-500 font-medium"
+                                    >Full Window Replacement</span
+                                >
+                                <span class="text-red-500 font-bold">$$$$</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center text-sm pb-2"
+                            >
+                                <span class="text-slate-500 font-medium"
+                                    >Current Glass Process</span
+                                >
+                                <span class="text-green-600 font-bold">$</span>
+                            </div>
+                            <p
+                                class="text-slate-600 text-sm mt-4 leading-relaxed font-medium"
+                            >
+                                Save up to 70% by keeping your existing vinyl,
+                                wood, or aluminum frames and only paying for the
+                                glass itself.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Time -->
+                    <div
+                        class="premium-card hover:border-none p-8 fade-in-section delay-100"
+                    >
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="p-2 bg-blue-100 text-brand-blue rounded-lg"
+                            >
+                                <i data-lucide="clock" class="h-6 w-6"></i>
+                            </div>
+                            <h3
+                                class="text-2xl font-serif font-bold text-brand-navy"
+                            >
+                                Time Efficiency
+                            </h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div
+                                class="flex justify-between items-center text-sm border-b border-slate-100 pb-2"
+                            >
+                                <span class="text-slate-500 font-medium"
+                                    >Full Window Replacement</span
+                                >
+                                <span class="text-slate-400 font-bold"
+                                    >2-4 Days</span
+                                >
+                            </div>
+                            <div
+                                class="flex justify-between items-center text-sm pb-2"
+                            >
+                                <span class="text-slate-500 font-medium"
+                                    >Current Glass Process</span
+                                >
+                                <span class="text-brand-blue font-bold"
+                                    >1-3 Hours</span
+                                >
+                            </div>
+                            <p
+                                class="text-slate-600 text-sm mt-4 leading-relaxed font-medium"
+                            >
+                                Since we don't remove the frames from the wall,
+                                installation is incredibly fast and minimally
+                                intrusive.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Mess -->
+                    <div
+                        class="premium-card hover:border-none p-8 fade-in-section delay-200"
+                    >
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="p-2 bg-purple-100 text-purple-600 rounded-lg"
+                            >
+                                <i data-lucide="sparkles" class="h-6 w-6"></i>
+                            </div>
+                            <h3
+                                class="text-2xl font-serif font-bold text-brand-navy"
+                            >
+                                Mess & Impact
+                            </h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div
+                                class="flex justify-between items-center text-sm border-b border-slate-100 pb-2"
+                            >
+                                <span class="text-slate-500 font-medium"
+                                    >Full Window Replacement</span
+                                >
+                                <span class="text-slate-400 font-bold"
+                                    >Stucco/Paint Damage</span
+                                >
+                            </div>
+                            <div
+                                class="flex justify-between items-center text-sm pb-2"
+                            >
+                                <span class="text-slate-500 font-medium"
+                                    >Current Glass Process</span
+                                >
+                                <span class="text-purple-600 font-bold"
+                                    >Zero Structural Damage</span
+                                >
+                            </div>
+                            <p
+                                class="text-slate-600 text-sm mt-4 leading-relaxed font-medium"
+                            >
+                                No stucco repair, no painting, and no trim work
+                                required. We leave your home exactly as we found
+                                it—just clearer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2
+                    class="font-serif font-black text-4xl text-brand-navy text-center mb-16 fade-in-section"
+                >
+                    Frequently Asked Questions
+                </h2>
+
+                <div class="space-y-6 fade-in-section">
+                    <div
+                        class="border border-slate-200 rounded-xl p-6 hover:border-brand-blue transition-colors cursor-pointer group"
+                    >
+                        <details class="group">
+                            <summary
+                                class="flex justify-between items-center font-bold text-brand-navy text-lg list-none cursor-pointer"
+                            >
+                                <span>What exactly is an IGU?</span>
+                                <span
+                                    class="transition-transform group-open:rotate-180"
+                                >
+                                    <i
+                                        data-lucide="chevron-down"
+                                        class="h-5 w-5 text-brand-blue"
+                                    ></i>
+                                </span>
+                            </summary>
+                            <p
+                                class="text-slate-600 mt-4 leading-relaxed font-medium"
+                            >
+                                An IGU (Insulated Glass Unit) consists of two
+                                panes of glass separated by a spacer and sealed
+                                to form a single unit. The space between the
+                                panes is usually filled with Argon gas to
+                                provide superior insulation compared to
+                                single-pane windows.
+                            </p>
+                        </details>
+                    </div>
+
+                    <div
+                        class="border border-slate-200 rounded-xl p-6 hover:border-brand-blue transition-colors cursor-pointer group"
+                    >
+                        <details class="group">
+                            <summary
+                                class="flex justify-between items-center font-bold text-brand-navy text-lg list-none cursor-pointer"
+                            >
+                                <span
+                                    >Can you fix the fog between my panes
+                                    without replacing the glass?</span
+                                >
+                                <span
+                                    class="transition-transform group-open:rotate-180"
+                                >
+                                    <i
+                                        data-lucide="chevron-down"
+                                        class="h-5 w-5 text-brand-blue"
+                                    ></i>
+                                </span>
+                            </summary>
+                            <p
+                                class="text-slate-600 mt-4 leading-relaxed font-medium"
+                            >
+                                No. Fogging occurs when the factory seal of the
+                                IGU has failed, allowing moisture to enter.
+                                There is no permanent way to "clean" the inside
+                                of a sealed unit. The only solution is to
+                                replace the glass unit itself, which is exactly
+                                what we specialize in.
+                            </p>
+                        </details>
+                    </div>
+
+                    <div
+                        class="border border-slate-200 rounded-xl p-6 hover:border-brand-blue transition-colors cursor-pointer group"
+                    >
+                        <details class="group">
+                            <summary
+                                class="flex justify-between items-center font-bold text-brand-navy text-lg list-none cursor-pointer"
+                            >
+                                <span
+                                    >Do your new glass units come with a
+                                    warranty?</span
+                                >
+                                <span
+                                    class="transition-transform group-open:rotate-180"
+                                >
+                                    <i
+                                        data-lucide="chevron-down"
+                                        class="h-5 w-5 text-brand-blue"
+                                    ></i>
+                                </span>
+                            </summary>
+                            <p
+                                class="text-slate-600 mt-4 leading-relaxed font-medium"
+                            >
+                                Yes. All of our Insulated Glass Units come with
+                                a manufacturer's warranty against seal failure
+                                (fogging). We stand behind the quality of our
+                                fabrication and installation to ensure your home
+                                stays clear for years to come.
+                            </p>
+                        </details>
+                    </div>
+
+                    <div
+                        class="border border-slate-200 rounded-xl p-6 hover:border-brand-blue transition-colors cursor-pointer group"
+                    >
+                        <details class="group">
+                            <summary
+                                class="flex justify-between items-center font-bold text-brand-navy text-lg list-none cursor-pointer"
+                            >
+                                <span
+                                    >Can you match my existing glass tint?</span
+                                >
+                                <span
+                                    class="transition-transform group-open:rotate-180"
+                                >
+                                    <i
+                                        data-lucide="chevron-down"
+                                        class="h-5 w-5 text-brand-blue"
+                                    ></i>
+                                </span>
+                            </summary>
+                            <p
+                                class="text-slate-600 mt-4 leading-relaxed font-medium"
+                            >
+                                Absolutely. During the measurement phase, our
+                                technicians identify the specific tint (Bronze,
+                                Grey, etc.) and Low-E coating of your existing
+                                windows to ensure the new glass blends
+                                seamlessly with the rest of your home.
+                            </p>
+                        </details>
+                    </div>
+
+                    <div
+                        class="border border-slate-200 rounded-xl p-6 hover:border-brand-blue transition-colors cursor-pointer group"
+                    >
+                        <details class="group">
+                            <summary
+                                class="flex justify-between items-center font-bold text-brand-navy text-lg list-none cursor-pointer"
+                            >
+                                <span
+                                    >What if my frames are wood or
+                                    aluminum?</span
+                                >
+                                <span
+                                    class="transition-transform group-open:rotate-180"
+                                >
+                                    <i
+                                        data-lucide="chevron-down"
+                                        class="h-5 w-5 text-brand-blue"
+                                    ></i>
+                                </span>
+                            </summary>
+                            <p
+                                class="text-slate-600 mt-4 leading-relaxed font-medium"
+                            >
+                                While many modern homes use vinyl, we are fully
+                                equipped to work with wood and aluminum frames
+                                as well. Our process is adaptable to almost any
+                                residential window system found in Central Utah.
+                            </p>
+                        </details>
+                    </div>
+
+                    <div
+                        class="border border-slate-200 rounded-xl p-6 hover:border-brand-blue transition-colors cursor-pointer group"
+                    >
+                        <details class="group">
+                            <summary
+                                class="flex justify-between items-center font-bold text-brand-navy text-lg list-none cursor-pointer"
+                            >
+                                <span
+                                    >Do I need to be home for the
+                                    installation?</span
+                                >
+                                <span
+                                    class="transition-transform group-open:rotate-180"
+                                >
+                                    <i
+                                        data-lucide="chevron-down"
+                                        class="h-5 w-5 text-brand-blue"
+                                    ></i>
+                                </span>
+                            </summary>
+                            <p
+                                class="text-slate-600 mt-4 leading-relaxed font-medium"
+                            >
+                                We typically require an adult to be present
+                                during the installation to provide access to the
+                                interior of the home and to perform the final
+                                walkthrough once the project is completed.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 bg-brand-navy relative overflow-hidden">
+            <div class="absolute inset-0 bg-brand-blue/5"></div>
+            <div
+                class="max-w-4xl mx-auto px-6 relative z-10 text-center fade-in-section"
+            >
+                <h2 class="font-serif text-4xl text-white font-black mb-6">
+                    Start Your Project
+                </h2>
+                <p
+                    class="text-slate-300 font-medium text-lg mb-8 max-w-2xl mx-auto"
+                >
+                    Don't let your old windows cloud your view. Contact us today
+                    for a seamless glass replacement experience.
+                </p>
+                <a
+                    href="contact.html"
+                    class="inline-flex items-center py-4 px-8 bg-brand-blue text-white font-bold rounded-lg shadow-lg hover:bg-white hover:text-brand-navy transition-all"
+                >
+                    Get a Free Quote
+                    <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-slate-100 py-16">
+            <div
+                class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12"
+            >
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <img
+                            src="logo.png"
+                            alt="Logo"
+                            onerror="this.style.display = 'none'"
+                            class="h-10 w-auto"
+                        />
+                        <span
+                            class="font-bold text-xl tracking-tight text-brand-navy transition-colors"
+                            >Current<span
+                                class="font-sans font-medium text-brand-blue"
+                                >Glass</span
+                            ></span
+                        >
+                    </div>
+                    <p
+                        class="text-slate-500 font-medium max-w-sm mb-6 leading-relaxed"
+                    >
+                        Premium glass replacement specializing in IGU reglazing.
+                        Better for your home, better for your wallet.
+                    </p>
+                </div>
+
+                <div>
+                    <h4
+                        class="text-brand-navy font-bold mb-6 uppercase tracking-wider text-xs"
+                    >
+                        Quick Links
+                    </h4>
+                    <ul class="space-y-4 text-slate-500 font-semibold text-sm">
+                        <li>
+                            <a
+                                href="index.html"
+                                class="hover:text-brand-blue transition-colors"
+                                >Home</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="process.html"
+                                class="text-brand-blue transition-colors"
+                                >Our Process</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="contact.html"
+                                class="hover:text-brand-blue transition-colors"
+                                >Contact Us</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="privacypolicy.html"
+                                class="hover:text-brand-blue transition-colors"
+                                >Privacy Policy</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4
+                        class="text-brand-navy font-bold mb-6 uppercase tracking-wider text-xs"
+                    >
+                        Direct Contact
+                    </h4>
+                    <div
+                        class="cursor-pointer"
+                        onclick="
+                            copyText(
+                                'aeyden@current-glass.com',
+                                'Email address',
+                            )
+                        "
+                        title="Click to copy"
+                    >
+                        <p class="text-slate-500 font-semibold text-sm mb-2">
+                            aeyden@current-glass.com
+                        </p>
+                    </div>
+                    <div
+                        class="cursor-pointer"
+                        onclick="copyText('(385) 287-5896', '(385) 287-5896')"
+                        title="Click to copy"
+                    >
+                        <p class="text-brand-blue font-bold text-lg mb-6">
+                            (385) 287-5896
+                        </p>
+                    </div>
+                    <p class="text-slate-400 text-xs italic">
+                        Serving Central Utah
+                    </p>
+                </div>
+            </div>
+            <div
+                class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-100 text-center text-slate-400 font-medium text-xs"
+            >
+                &copy; 2026 Current Glass.
+            </div>
+        </footer>
+
+        <!-- Copy Notification Toast -->
+        <div
+            id="copy-notification"
+            class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-brand-navy text-white px-6 py-3 rounded-full shadow-2xl translate-y-24 opacity-0 transition-all duration-300 z-50 flex items-center gap-3 pointer-events-none"
+        >
+            <i data-lucide="check-circle-2" class="h-5 w-5 text-green-400"></i>
+            <span id="notification-text" class="font-medium text-sm"
+                >Copied to clipboard</span
+            >
+        </div>
+
+        <!-- Scripts -->
+        <script>
+            lucide.createIcons();
+
+            // Navbar Scroll
+            const nav = document.getElementById("navbar");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add("nav-scrolled", "py-4");
+                    nav.classList.remove("py-6");
+                } else {
+                    nav.classList.remove("nav-scrolled", "py-4");
+                    nav.classList.add("py-6");
+                }
+            });
+
+            // Scroll Observer
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                        }
+                    });
+                },
+                { threshold: 0.1 },
+            );
+
+            document
+                .querySelectorAll(".fade-in-section")
+                .forEach((el) => observer.observe(el));
+
+            // Mobile Menu
+            const mobileBtn = document.getElementById("mobile-menu-btn");
+            const closeBtn = document.getElementById("close-menu");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const mobileLinks = document.querySelectorAll(".mobile-link");
+
+            function toggleMenu() {
+                mobileMenu.classList.toggle("translate-x-full");
             }
-        });
 
-        // Scroll Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, { threshold: 0.1 });
+            mobileBtn.addEventListener("click", toggleMenu);
+            closeBtn.addEventListener("click", toggleMenu);
+            mobileLinks.forEach((link) =>
+                link.addEventListener("click", toggleMenu),
+            );
 
-        document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+            // --- COPY TO CLIPBOARD ---
+            let timeoutId;
+            function copyText(text, label) {
+                navigator.clipboard
+                    .writeText(text)
+                    .then(() => {
+                        showNotification(`${label} copied!`);
+                    })
+                    .catch((err) => {
+                        console.error("Failed to copy: ", err);
+                        // Fallback approach
+                        const textArea = document.createElement("textarea");
+                        textArea.value = text;
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        try {
+                            document.execCommand("copy");
+                            showNotification(`${label} copied!`);
+                        } catch (e) {
+                            console.error("Fallback copy failed", e);
+                        }
+                        document.body.removeChild(textArea);
+                    });
+            }
 
-        // Mobile Menu
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+            function showNotification(message) {
+                const notification =
+                    document.getElementById("copy-notification");
+                const textEl = document.getElementById("notification-text");
 
-        function toggleMenu() {
-            mobileMenu.classList.toggle('translate-x-full');
-        }
+                textEl.textContent = message;
+                notification.classList.remove("translate-y-24", "opacity-0");
 
-        mobileBtn.addEventListener('click', toggleMenu);
-        closeBtn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
-        
-        // --- COPY TO CLIPBOARD ---
-        let timeoutId;
-        function copyText(text, label) {
-            navigator.clipboard.writeText(text).then(() => {
-                showNotification(`${label} copied!`);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-                // Fallback approach
-                const textArea = document.createElement("textarea");
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.select();
-                try {
-                   document.execCommand("copy");
-                   showNotification(`${label} copied!`);
-                } catch (e) {
-                   console.error("Fallback copy failed", e);
-                }
-                document.body.removeChild(textArea);
-            });
-        }
-        
-        
-        function showNotification(message) {
-            const notification = document.getElementById('copy-notification');
-            const textEl = document.getElementById('notification-text');
-            
-            textEl.textContent = message;
-            notification.classList.remove('translate-y-24', 'opacity-0');
-            
-            if (timeoutId) clearTimeout(timeoutId);
-            
-            timeoutId = setTimeout(() => {
-                notification.classList.add('translate-y-24', 'opacity-0');
-            }, 3000);
-        }
-    </script>
-</body>
+                if (timeoutId) clearTimeout(timeoutId);
+
+                timeoutId = setTimeout(() => {
+                    notification.classList.add("translate-y-24", "opacity-0");
+                }, 3000);
+            }
+        </script>
+    </body>
 </html>
